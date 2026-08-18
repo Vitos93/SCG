@@ -105,6 +105,20 @@
   .modal-body li{font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:4px;}
   .modal-body b{color:var(--text);}
   .modal-body .day-intro{font-size:13px; color:var(--text); background:var(--orange-tint); border:1px solid var(--orange-dim); border-radius:10px; padding:12px 14px; margin-bottom:14px;}
+
+  .category-card{background:var(--surface); border:1px solid var(--border); border-radius:14px; margin:16px 20px 0; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
+  .category-head{display:flex; align-items:center; gap:12px; padding:16px; cursor:pointer; background:none; border:none; width:100%; text-align:left; transition:background .15s ease;}
+  .category-head:active{background:var(--orange-tint);}
+  .category-icon{width:42px; height:42px; border-radius:11px; background:var(--orange-tint); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;}
+  .category-info{flex:1; min-width:0;}
+  .category-title{font-size:14.5px; font-weight:700; color:var(--text);}
+  .category-count{font-size:11.5px; color:var(--text-secondary); margin-top:2px;}
+  .category-chevron{font-size:14px; color:var(--orange); transition:transform .25s ease; flex-shrink:0;}
+  .category-card.open .category-chevron{transform:rotate(180deg);}
+  .category-body{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .category-card.open .category-body{max-height:3000px;}
+  .category-body-inner{padding:0 12px 14px;}
+  .category-body .course-card{margin:0 4px 10px;}
 </style>
 </head>
 <body>
@@ -120,10 +134,7 @@
 
   <main>
     <div id="tab-courses" class="tab active">
-      <div class="section-label">Для руководителей отделов продаж</div>
-      <div id="rop-list"></div>
-      <div class="section-label">Для менеджеров по продажам</div>
-      <div id="mop-list"></div>
+      <div id="category-list"></div>
     </div>
 
     <div id="tab-books" class="tab">
@@ -383,13 +394,49 @@ function closeMaterials(){
   document.getElementById('modal-overlay').classList.remove('show');
 }
 
+let openCategory = null;
+
 function renderCourses(){
-  const ropList = document.getElementById('rop-list');
-  const mopList = document.getElementById('mop-list');
-  ropList.innerHTML = '';
-  mopList.innerHTML = '';
-  COURSES.filter(c=>c.audience==='rop').forEach(c=> ropList.appendChild(renderCourseCard(c)));
-  COURSES.filter(c=>c.audience==='mop').forEach(c=> mopList.appendChild(renderCourseCard(c)));
+  const container = document.getElementById('category-list');
+  const categories = [
+    {key:'rop', title:'Для руководителей отделов продаж', icon:'🎯', list:COURSES.filter(c=>c.audience==='rop')},
+    {key:'mop', title:'Для менеджеров по продажам', icon:'📈', list:COURSES.filter(c=>c.audience==='mop')}
+  ];
+
+  container.innerHTML = '';
+  categories.forEach(cat=>{
+    const isOpen = openCategory === cat.key;
+    const doneCount = cat.list.filter(c => (progress.courses[c.id]||0) === STAGES.length).length;
+
+    const card = document.createElement('div');
+    card.className = 'category-card' + (isOpen ? ' open' : '');
+
+    const head = document.createElement('button');
+    head.className = 'category-head';
+    head.innerHTML = `
+      <div class="category-icon">${cat.icon}</div>
+      <div class="category-info">
+        <div class="category-title">${cat.title}</div>
+        <div class="category-count">${cat.list.length} курсов${doneCount ? ` · ${doneCount} внедрено` : ''}</div>
+      </div>
+      <div class="category-chevron">▾</div>
+    `;
+    head.addEventListener('click', ()=>{
+      openCategory = isOpen ? null : cat.key;
+      renderCourses();
+    });
+
+    const body = document.createElement('div');
+    body.className = 'category-body';
+    const bodyInner = document.createElement('div');
+    bodyInner.className = 'category-body-inner';
+    cat.list.forEach(c=> bodyInner.appendChild(renderCourseCard(c)));
+    body.appendChild(bodyInner);
+
+    card.appendChild(head);
+    card.appendChild(body);
+    container.appendChild(card);
+  });
 
   document.querySelectorAll('.stage-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
