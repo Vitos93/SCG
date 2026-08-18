@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Академия SCG</title>
 <meta name="theme-color" content="#FAFAFA">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="SCG — Sales Consulting Group">
+<meta property="og:description" content="Строим отделы продаж, которые работают без вас. Аудит, построение с нуля, мотивация и обучение команды.">
+<meta property="og:image" content="https://vitos93.github.io/SCG/icon-512-v2.png">
+<meta property="og:url" content="https://vitos93.github.io/SCG/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SCG — Sales Consulting Group">
+<meta name="twitter:description" content="Строим отделы продаж, которые работают без вас.">
+<meta name="twitter:image" content="https://vitos93.github.io/SCG/icon-512-v2.png">
 <meta name="description" content="Курсы и книги для руководителей отделов продаж и менеджеров по продажам — Sales Consulting Group">
 <link rel="icon" type="image/png" href="icon-192-v2.png">
 <link rel="apple-touch-icon" href="icon-192-v2.png">
@@ -172,6 +182,19 @@
   .faq-item.open .faq-a{max-height:400px;}
   .faq-a-inner{padding:0 16px 16px; font-size:12.5px; color:var(--text-secondary); line-height:1.55;}
 
+  .article-card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:0 20px 10px; box-shadow:0 1px 3px rgba(0,0,0,0.04); cursor:pointer; transition:transform .1s ease; animation:fadeInUp .3s ease both;}
+  .article-card:active{transform:scale(0.98);}
+  .article-tag{font-size:10.5px; color:var(--orange); font-weight:700; text-transform:uppercase; letter-spacing:.5px;}
+  .article-title{font-size:14px; font-weight:700; color:var(--text); margin-top:5px; line-height:1.35;}
+  .article-excerpt{font-size:12px; color:var(--text-secondary); margin-top:5px; line-height:1.5;}
+  .article-read{font-size:11.5px; color:var(--orange); font-weight:700; margin-top:8px;}
+
+  .contact-card{margin:0 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
+  .contact-row{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:12.5px;}
+  .contact-row:last-child{border-bottom:none;}
+  .contact-label{color:var(--text-secondary);}
+  .contact-value{color:var(--text); font-weight:600;}
+
   /* Calculator */
   .calc-card{margin:0 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
   .calc-field{margin-bottom:12px;}
@@ -322,6 +345,18 @@
 
       <div class="section-label">Бесплатный материал</div>
       <div id="checklist-gate"></div>
+
+      <div class="section-label">Статьи от эксперта</div>
+      <div id="articles-list"></div>
+
+      <div class="section-label">Контакты</div>
+      <div class="contact-card">
+        <div class="contact-row"><span class="contact-label">Город</span><span class="contact-value"> </span></div>
+        <div class="contact-row"><span class="contact-label">Телефон</span><span class="contact-value"> </span></div>
+        <div class="contact-row"><span class="contact-label">Email</span><span class="contact-value"> </span></div>
+        <div class="contact-row"><span class="contact-label">ИНН</span><span class="contact-value"> </span></div>
+        <div class="contact-row"><span class="contact-label">Telegram</span><span class="contact-value">@vitaly_scg</span></div>
+      </div>
     </div>
 
     <div id="tab-diagnosis" class="tab"></div>
@@ -329,18 +364,6 @@
     <div id="tab-games" class="tab">
       <div class="section-label">Деловые игры</div>
       <div id="games-list"></div>
-    </div>
-
-    <div id="tab-profile" class="tab">
-      <div class="section-label">Мой прогресс</div>
-      <div class="stats-row">
-        <div class="stat-card"><div class="stat-icon">🏆</div><div class="stat-value" id="stat-done">0/0</div><div class="stat-label">курсов внедрено</div></div>
-        <div class="stat-card"><div class="stat-icon">🔥</div><div class="stat-value" id="stat-progress">0</div><div class="stat-label">в работе</div></div>
-      </div>
-      <div class="info-box">
-        <div class="info-head">📈 Как считается прогресс</div>
-        <div class="info-text">Каждый курс проходит 4 стадии — от знакомства до внедрения в ежедневную работу отдела. Отмечайте стадию на карточке курса, прогресс сохраняется автоматически в этом браузере.</div>
-      </div>
     </div>
   </main>
 
@@ -362,7 +385,6 @@
     <button class="nav-btn active" data-tab="home"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></button>
     <button class="nav-btn" data-tab="diagnosis"><span class="nav-icon">📋</span><span class="nav-label">Тест</span></button>
     <button class="nav-btn" data-tab="games"><span class="nav-icon">💼</span><span class="nav-label">Бизнес игры</span></button>
-    <button class="nav-btn" data-tab="profile"><span class="nav-icon">📊</span><span class="nav-label">Прогресс</span></button>
   </nav>
 
 </div>
@@ -397,6 +419,48 @@ const SERVICES = [
     id:"s5", icon:"🎓", title:"Корпоративное обучение команды",
     desc:"Курсы и деловые игры для РОП и менеджеров — часть материалов доступна в этом приложении для ознакомления.",
     more:"Полная библиотека курсов и деловых игр для вашей команды с индивидуальным трекингом прогресса — доступ открывается после консультации."
+  }
+];
+
+const ARTICLES = [
+  {
+    id:"a1", tag:"KPI и мотивация", title:"3 ошибки при внедрении KPI",
+    excerpt:"Почему новая система мотивации часто не даёт роста выручки — и как этого избежать.",
+    body:`
+      <p>Руководители часто внедряют KPI с благими намерениями, но получают обратный эффект — команда демотивирована, а результат не растёт. Разберём три самые частые ошибки.</p>
+      <h3>Ошибка 1: KPI только по результату</h3>
+      <p>Если платить исключительно за закрытые сделки, менеджеры перестают заниматься тем, что не оплачивается напрямую — актуализацией CRM, работой с холодной базой. Воронка на входе истощается, и через несколько месяцев план начинает срываться без видимой причины.</p>
+      <h3>Ошибка 2: слишком много показателей одновременно</h3>
+      <p>Когда KPI больше 5-6 штук, менеджер физически не может держать в фокусе все сразу — внимание распыляется, и в итоге ни один показатель толком не улучшается. Лучше 3-4 ключевых метрики, чем десять формальных.</p>
+      <h3>Ошибка 3: изменение правил задним числом</h3>
+      <p>Если система мотивации меняется без предупреждения посреди месяца, команда теряет доверие даже к объективно более выгодным изменениям. Любое изменение KPI стоит объявлять минимум за месяц, с понятным объяснением причин.</p>
+    `
+  },
+  {
+    id:"a2", tag:"Продажи", title:"Почему скрипты продаж не работают",
+    excerpt:"Дело не в самом скрипте — а в том, как его внедряют и как им пользуются.",
+    body:`
+      <p>«Мы написали скрипт, а менеджеры всё равно продают по-разному» — одна из самых частых жалоб руководителей. Обычно причина не в качестве скрипта, а в том, как он используется.</p>
+      <h3>Скрипт читают, а не проживают</h3>
+      <p>Если менеджер зачитывает текст дословно, клиент это слышит — разговор звучит неестественно. Рабочий скрипт — это структура и опорные фразы, а не текст для чтения по бумажке слово в слово.</p>
+      <h3>Никто не проверяет, используется ли он</h3>
+      <p>Скрипт написан и выложен в общую папку — но никто не слушает звонки и не сверяет их со скриптом. Без регулярной проверки даже хороший скрипт постепенно забывается и заменяется привычными фразами каждого менеджера.</p>
+      <h3>Скрипт один для всех сегментов клиентов</h3>
+      <p>Разговор с крупным корпоративным клиентом и с небольшим ИП должен строиться по-разному — а универсальный скрипт «на все случаи» звучит неубедительно в обоих сценариях сразу.</p>
+    `
+  },
+  {
+    id:"a3", tag:"Аудит", title:"Как понять, что пора делать аудит отдела",
+    excerpt:"Несколько признаков, что проблема не в людях, а в системе — и решить её точечно не получится.",
+    body:`
+      <p>Часто руководитель чувствует, что с отделом что-то не так, но не может сформулировать, что именно. Вот несколько сигналов, что дело не в конкретном человеке, а в системе целиком.</p>
+      <h3>Результат держится на 1-2 сильных менеджерах</h3>
+      <p>Если уход одного человека заметно бьёт по выручке отдела — это не про случайность, а про отсутствие системы, которая работает независимо от конкретных людей.</p>
+      <h3>Никто точно не знает текущих цифр воронки</h3>
+      <p>Если на вопрос «сколько лидов пришло за неделю» руководитель не может ответить сразу — значит, решения в отделе принимаются на ощущениях, а не на данных.</p>
+      <h3>Одни и те же проблемы повторяются из месяца в месяц</h3>
+      <p>Если план срывается по одной и той же причине уже третий месяц подряд, а решение каждый раз одно и то же («будем стараться больше») — это верный признак, что нужен взгляд со стороны на процесс, а не ещё одна мотивационная речь.</p>
+    `
   }
 ];
 
@@ -1360,6 +1424,29 @@ function renderChecklistGate(){
   `;
 }
 
+function renderArticles(){
+  const list = document.getElementById('articles-list');
+  if(!list) return;
+  list.innerHTML = '';
+  ARTICLES.forEach(a=>{
+    const card = document.createElement('div');
+    card.className = 'article-card';
+    card.innerHTML = `
+      <div class="article-tag">${a.tag}</div>
+      <div class="article-title">${a.title}</div>
+      <div class="article-excerpt">${a.excerpt}</div>
+      <div class="article-read">Читать →</div>
+    `;
+    card.addEventListener('click', ()=>{
+      document.getElementById('modal-title').textContent = a.title;
+      document.getElementById('modal-body').innerHTML = a.body + DEMO_CTA;
+      document.getElementById('modal-overlay').classList.add('show');
+      document.getElementById('modal-body').scrollTop = 0;
+    });
+    list.appendChild(card);
+  });
+}
+
 function renderFAQ(){
   const list = document.getElementById('faq-list');
   if(!list) return;
@@ -1544,7 +1631,6 @@ function renderCourses(){
       saveProgress(progress);
       if(next === STAGES.length) showToast('🏆 Курс внедрён в работу');
       renderCourses();
-      renderProfile();
     });
   });
 
@@ -1683,31 +1769,41 @@ document.getElementById('modal-overlay').addEventListener('click', (e)=>{
 
 renderServices();
 renderFAQ();
+renderArticles();
 renderCalculator();
 renderChecklistGate();
 renderQuiz();
 renderCourses();
 renderGames();
-renderProfile();
 
 const shareBtn = document.getElementById('share-btn');
 if(shareBtn){
   shareBtn.addEventListener('click', async ()=>{
+    const shareUrl = window.location.href;
     const shareData = {
       title: 'Академия SCG',
-      text: 'Полезное приложение от Sales Consulting Group — курсы, диагностика отдела продаж и деловые игры.',
-      url: window.location.href
+      text: 'Полезное приложение от Sales Consulting Group — диагностика отдела продаж и деловые игры.',
+      url: shareUrl
     };
-    try{
-      if(navigator.share){
+    if(navigator.share){
+      try{
         await navigator.share(shareData);
-      } else {
-        await navigator.clipboard.writeText(window.location.href);
-        showToast('🔗 Ссылка скопирована');
+        return;
+      }catch(e){
+        if(e && e.name === 'AbortError') return;
       }
-    }catch(e){}
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      try{
+        await navigator.clipboard.writeText(shareUrl);
+        showToast('🔗 Ссылка скопирована');
+        return;
+      }catch(e){}
+    }
+    window.prompt('Скопируйте ссылку:', shareUrl);
   });
 }
 </script>
+
 </body>
 </html>
