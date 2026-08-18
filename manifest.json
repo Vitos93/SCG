@@ -1,7 +1,7 @@
 {
-  "name": "Академия SCG",
+  "name": "SCG — Sales Consulting Group",
   "short_name": "SCG",
-  "description": "Курсы и книги для руководителей отделов продаж и менеджеров по продажам — Sales Consulting Group",
+  "description": "Sales Consulting Group — аудит, построение отдела продаж с нуля, мотивация и обучение команды.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
