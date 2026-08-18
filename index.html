@@ -53,8 +53,8 @@
   .stage-btn:active{transform:scale(0.94);}
   .stage-btn.filled{background:var(--orange); color:#fff;}
 
-  .book-row{display:flex; align-items:center; gap:12px; padding:10px 20px; border-bottom:1px solid var(--border); background:var(--surface); transition:background .15s ease; animation:fadeInUp .3s ease both;}
-  .book-row:active{background:var(--surface-raised);}
+  .book-row{display:flex; align-items:center; gap:12px; padding:10px; background:var(--surface-raised); transition:background .15s ease; animation:fadeInUp .3s ease both;}
+  .book-row:active{background:var(--orange-tint);}
   .book-cover{width:36px; height:48px; border-radius:4px; flex-shrink:0; background:var(--orange-tint); border:1px solid var(--orange-dim); display:flex; align-items:center; justify-content:center; font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:15px; color:var(--orange);}
   .book-info{flex:1; min-width:0;}
   .book-title{font-size:13.5px; font-weight:700; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
@@ -145,11 +145,6 @@
       <div id="category-list"></div>
     </div>
 
-    <div id="tab-books" class="tab">
-      <div class="section-label">Библиотека SCG</div>
-      <div id="books-list"></div>
-    </div>
-
     <div id="tab-games" class="tab">
       <div class="section-label">Деловые игры</div>
       <div id="games-list"></div>
@@ -160,7 +155,6 @@
       <div class="stats-row">
         <div class="stat-card"><div class="stat-icon">🏆</div><div class="stat-value" id="stat-done">0/0</div><div class="stat-label">курсов внедрено</div></div>
         <div class="stat-card"><div class="stat-icon">🔥</div><div class="stat-value" id="stat-progress">0</div><div class="stat-label">в работе</div></div>
-        <div class="stat-card"><div class="stat-icon">📚</div><div class="stat-value" id="stat-books">0/0</div><div class="stat-label">книг прочитано</div></div>
       </div>
       <div class="info-box">
         <div class="info-head">📈 Как считается прогресс</div>
@@ -183,7 +177,6 @@
 
   <nav class="bottom">
     <button class="nav-btn active" data-tab="courses"><span class="nav-icon">🎓</span><span class="nav-label">Курсы</span></button>
-    <button class="nav-btn" data-tab="books"><span class="nav-icon">📚</span><span class="nav-label">Книги</span></button>
     <button class="nav-btn" data-tab="games"><span class="nav-icon">💼</span><span class="nav-label">Бизнес игры</span></button>
     <button class="nav-btn" data-tab="profile"><span class="nav-icon">📊</span><span class="nav-label">Прогресс</span></button>
   </nav>
@@ -205,17 +198,6 @@ const COURSES = [
   {id:"c8", audience:"mop", title:"Закрытие сделки", desc:"5 модулей: сигналы готовности клиента, техники закрытия, работа с отказом и follow-up после встречи."},
   {id:"c9", audience:"mop", title:"Переговоры с сильным оппонентом", desc:"7 модулей: как договариваться с влиятельным клиентом или руководителем, который изначально не считает вас равной стороной."},
   {id:"c10", audience:"mop", title:"Сложные типажи клиентов", desc:"8 модулей: полный разбор трудных персонажей продаж — от скряги и тирана до понтующегося статусом — с рабочей тактикой под каждый тип."}
-];
-
-const BOOKS = [
-  {id:"b1", title:"СПИН-продажи", author:"Нил Рэкхем", tag:"Продажи"},
-  {id:"b2", title:"Чемпионы продаж", author:"Мэттью Диксон, Брент Адамсон", tag:"Продажи"},
-  {id:"b3", title:"Найм на всю голову", author:"Светлана Иванова", tag:"Управление"},
-  {id:"b4", title:"Взрывной рост продаж", author:"Аарон Росс", tag:"Управление"},
-  {id:"b5", title:"Договориться можно обо всём", author:"Гэвин Кеннеди", tag:"Переговоры"},
-  {id:"b6", title:"Психология влияния", author:"Роберт Чалдини", tag:"Мышление"},
-  {id:"b7", title:"Сначала скажите «нет»", author:"Джим Кэмп", tag:"Переговоры"},
-  {id:"b8", title:"Атомные привычки", author:"Джеймс Клир", tag:"Мышление"}
 ];
 
 const GAMES = [
@@ -1098,35 +1080,6 @@ function renderCourses(){
   });
 }
 
-function renderBooks(){
-  const list = document.getElementById('books-list');
-  list.innerHTML = '';
-  BOOKS.forEach(book=>{
-    const isRead = !!progress.books[book.id];
-    const row = document.createElement('div');
-    row.className = 'book-row';
-    row.innerHTML = `
-      <div class="book-cover">${book.title.charAt(0)}</div>
-      <div class="book-info">
-        <div class="book-title">${book.title}</div>
-        <div class="book-author">${book.author}</div>
-        <div class="book-tag">${book.tag}</div>
-      </div>
-      <button class="book-toggle ${isRead?'read':''}" data-book="${book.id}">${isRead?'✓':''}</button>
-    `;
-    list.appendChild(row);
-  });
-  document.querySelectorAll('.book-toggle').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const id = btn.dataset.book;
-      progress.books[id] = !progress.books[id];
-      saveProgress(progress);
-      renderBooks();
-      renderProfile();
-    });
-  });
-}
-
 const GAME_CONTENT = {
   g2: `
     <div class="day-intro"><b>Формат:</b> 45 минут, 5-15 человек. Нужен набор случайных предметов (степлер, зонт, кружка, старый телефон и т.п.) и таймер.</div>
@@ -1230,10 +1183,8 @@ function renderGames(){
 function renderProfile(){
   const doneCourses = Object.values(progress.courses).filter(s=>s===STAGES.length).length;
   const inProgress = Object.values(progress.courses).filter(s=>s>0 && s<STAGES.length).length;
-  const booksRead = Object.values(progress.books).filter(Boolean).length;
   document.getElementById('stat-done').textContent = `${doneCourses}/${COURSES.length}`;
   document.getElementById('stat-progress').textContent = inProgress;
-  document.getElementById('stat-books').textContent = `${booksRead}/${BOOKS.length}`;
 }
 
 function showToast(){
@@ -1257,7 +1208,6 @@ document.getElementById('modal-overlay').addEventListener('click', (e)=>{
 });
 
 renderCourses();
-renderBooks();
 renderGames();
 renderProfile();
 </script>
