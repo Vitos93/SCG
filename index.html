@@ -243,6 +243,49 @@
   .game-desc{font-size:12.5px; color:var(--text-secondary); margin-top:4px;}
   .game-meta{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
   .game-tag{font-size:10.5px; color:var(--orange); background:var(--orange-tint); border-radius:6px; padding:3px 8px; font-weight:600;}
+  /* ===== Desktop / wide screen layout ===== */
+  @media (min-width: 860px){
+    body{padding:32px 20px; align-items:flex-start;}
+    #app{max-width:1120px; min-height:auto; border:1px solid var(--border); border-radius:18px; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.08);}
+
+    header.top{padding:20px 40px;}
+
+    nav.bottom{position:static; order:-1; transform:none; left:auto; bottom:auto; max-width:none; width:100%; justify-content:center; gap:6px; padding:8px 40px; border-top:none; border-bottom:1px solid var(--border);}
+    .nav-btn{flex:0 0 auto; flex-direction:row; gap:7px; padding:9px 22px; border-radius:20px;}
+    .nav-btn.active{background:var(--orange-tint);}
+    .nav-icon{font-size:16px;}
+    .nav-icon img{width:17px; height:17px;}
+    .nav-label{font-size:12.5px;}
+
+    main{padding-bottom:32px;}
+
+    .fab-contact{position:sticky; left:auto; transform:none; bottom:24px; margin-left:auto; margin-right:40px; width:auto; max-width:none; float:right;}
+
+    .hero{padding:44px 40px 36px;}
+    .hero-title{font-size:26px; max-width:640px; margin:0 auto;}
+    .hero-tagline{max-width:560px; margin:8px auto 0;}
+    .cta-btn{max-width:420px; margin-left:auto; margin-right:auto;}
+    .share-btn{max-width:420px; margin-left:auto; margin-right:auto;}
+
+    .section-label{padding-left:40px; padding-right:40px;}
+
+    .founder-card, .contact-card, .quiz-intro, .quiz-wrap{margin-left:40px; margin-right:40px;}
+    .quiz-progress-bar{margin-left:40px; margin-right:40px;}
+
+    #services-list, #articles-list, #games-list{display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; padding:0 40px;}
+    .service-card, .article-card, .game-card{margin:0;}
+
+    .category-card{margin-left:40px; margin-right:40px;}
+    .faq-item{margin-left:40px; margin-right:40px;}
+    .process-list{padding:0 40px; max-width:640px;}
+
+    .modal-overlay{align-items:center;}
+    .modal-sheet{max-width:560px; max-height:80vh; border-radius:16px;}
+  }
+
+  @media (min-width: 1200px){
+    #services-list, #articles-list, #games-list{grid-template-columns:repeat(3, 1fr);}
+  }
 </style>
 </head>
 <body>
@@ -413,12 +456,12 @@ const SERVICES = [
     more:"Выезжаем или работаем удалённо: слушаем звонки, смотрим CRM, беседуем с командой. На выходе — конкретный список точек роста с приоритетами, а не общие рекомендации в духе «продавайте больше»."
   },
   {
-    id:"s2", icon:"🏗️", title:"Построение отдела с нуля",
+    id:"s2", icon:"🧩", title:"Построение отдела с нуля",
     desc:"Проектируем структуру, воронку, регламенты и систему мотивации для нового отдела продаж под ваш продукт.",
     more:"От портрета первого менеджера и структуры воронки до готовых регламентов и CRM — под ключ, с учётом специфики вашего рынка и цикла сделки."
   },
   {
-    id:"s3", icon:"🧑‍🤝‍🧑", title:"Аудит найма и адаптации",
+    id:"s3", icon:"📋", title:"Аудит найма и адаптации",
     desc:"Разбираем, как оформлена вакансия и портрет кандидата, даём рекомендации по найму и регламент ввода в должность для менеджеров.",
     more:"Мы не нанимаем сотрудников за вас — мы настраиваем сам процесс: проверяем текст вакансии и портрет кандидата, помогаем выстроить структуру собеседований и пишем регламент адаптации новых менеджеров на первые недели работы."
   },
