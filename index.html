@@ -171,6 +171,31 @@
   .faq-item.open .faq-a{max-height:400px;}
   .faq-a-inner{padding:0 16px 16px; font-size:12.5px; color:var(--text-secondary); line-height:1.55;}
 
+  /* Calculator */
+  .calc-card{margin:0 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
+  .calc-field{margin-bottom:12px;}
+  .calc-label{font-size:12px; color:var(--text-secondary); margin-bottom:5px; display:block;}
+  .calc-input{width:100%; padding:11px 12px; border-radius:8px; border:1.5px solid var(--border); background:var(--surface-raised); color:var(--text); font-size:14px; font-family:Arial,Helvetica,sans-serif;}
+  .calc-input:focus{outline:none; border-color:var(--orange);}
+  .calc-result{margin-top:14px; padding:14px; border-radius:10px; background:var(--orange-tint); border:1px solid var(--orange-dim); text-align:center;}
+  .calc-result-num{font-family:Arial,Helvetica,sans-serif; font-size:24px; font-weight:700; color:var(--orange);}
+  .calc-result-label{font-size:11.5px; color:var(--text-secondary); margin-top:2px;}
+  .calc-note{font-size:10.5px; color:var(--text-muted); margin-top:8px; line-height:1.4;}
+
+  /* Simple checklist */
+  .simple-list{margin:0 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
+  .simple-list ul{margin:0; padding-left:0; list-style:none;}
+  .simple-list li{font-size:13px; color:var(--text-secondary); line-height:1.7; padding-left:24px; position:relative;}
+  .simple-list li::before{content:"✓"; position:absolute; left:0; color:var(--orange); font-weight:700;}
+
+  /* Share button */
+  .share-btn{display:block; width:calc(100% - 40px); margin:10px 20px 0; padding:12px; border-radius:10px; border:1.5px solid var(--border); background:var(--surface); color:var(--text); font-size:13px; font-weight:600; text-align:center; cursor:pointer;}
+  .share-btn:active{background:var(--surface-raised);}
+
+  /* Lead gate form */
+  .gate-input{width:100%; padding:12px 14px; border-radius:9px; border:1.5px solid var(--border); background:var(--surface-raised); color:var(--text); font-size:14px; margin-bottom:10px; font-family:Arial,Helvetica,sans-serif;}
+  .gate-input:focus{outline:none; border-color:var(--orange);}
+
   .category-card{background:var(--surface); border:1px solid var(--border); border-radius:14px; margin:16px 20px 0; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
   .category-head{display:flex; align-items:center; gap:12px; padding:16px; cursor:pointer; background:none; border:none; width:100%; text-align:left; transition:background .15s ease;}
   .category-head:active{background:var(--orange-tint);}
@@ -213,6 +238,7 @@
         <div class="hero-tagline">Аудит отдела продаж, построение системы с нуля, настройка мотивации и обучение команды. Sales Consulting Group — практики, а не теоретики.</div>
       </div>
       <a class="cta-btn" href="https://t.me/vitaly_scg" target="_blank" rel="noopener">Записаться на бесплатную консультацию</a>
+      <button class="share-btn" id="share-btn">↗ Поделиться приложением</button>
 
       <div class="section-label">Кто ведёт проекты</div>
       <div class="founder-card">
@@ -220,8 +246,8 @@
         <div>
           <div class="founder-name">Виталий Сидоров</div>
           <div class="founder-role">Основатель и руководитель SCG (Sales Consulting Group)</div>
-          <div class="founder-bio">Более 10 лет в коммерческом направлении бизнеса. Специализация — построение и системное развитие коммерческих отделов «под ключ»: от структуры и мотивации до KPI и системы управления. За плечами — 7+ лет практики в этой узкой экспертизе.</div>
-          <div class="founder-bio" style="margin-top:10px; font-weight:700; color:var(--text);">Работает с задачами:</div>
+          <div class="founder-bio">Более 10 лет в коммерческом направлении бизнеса. Специализация — построение и системное развитие коммерческих отделов «под ключ»: от структуры и мотивации до KPI и системы управления. За плечами — 10+ лет практики в этой узкой экспертизе.</div>
+          <div class="founder-bio" style="margin-top:10px; font-weight:700; color:var(--text);">Работаем с задачами:</div>
           <ul class="founder-tasks">
             <li>аудит и диагностика отдела продаж</li>
             <li>построение отдела продаж с нуля</li>
@@ -280,17 +306,24 @@
       <div class="section-label">Частые вопросы</div>
       <div id="faq-list"></div>
 
-      <div class="section-label">Демо-доступ</div>
-      <div class="service-card">
-        <div class="service-desc">Ниже — часть наших курсов и деловых игр в открытом доступе, чтобы вы могли оценить подход и глубину проработки материалов. Полный доступ для вашей команды — после консультации.</div>
+      <div class="section-label">Что мы смотрим на аудите</div>
+      <div class="simple-list">
+        <ul>
+          <li>Воронка и критерии перехода между этапами</li>
+          <li>Актуальность и полнота данных в CRM</li>
+          <li>Регламенты по типовым ситуациям и их реальное исполнение</li>
+          <li>Разделение ролей и зон ответственности в команде</li>
+          <li>Структура и логика текущей системы мотивации</li>
+          <li>Программа адаптации новых менеджеров</li>
+          <li>Записи звонков и качество работы с возражениями</li>
+        </ul>
       </div>
+
+      <div class="section-label">Бесплатный материал</div>
+      <div id="checklist-gate"></div>
     </div>
 
     <div id="tab-diagnosis" class="tab"></div>
-
-    <div id="tab-courses" class="tab">
-      <div id="category-list"></div>
-    </div>
 
     <div id="tab-games" class="tab">
       <div class="section-label">Деловые игры</div>
@@ -327,8 +360,7 @@
   <nav class="bottom">
     <button class="nav-btn active" data-tab="home"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></button>
     <button class="nav-btn" data-tab="diagnosis"><span class="nav-icon">📋</span><span class="nav-label">Тест</span></button>
-    <button class="nav-btn" data-tab="courses"><span class="nav-icon">🎓</span><span class="nav-label">Курсы</span></button>
-    <button class="nav-btn" data-tab="games"><span class="nav-icon">💼</span><span class="nav-label">Игры</span></button>
+    <button class="nav-btn" data-tab="games"><span class="nav-icon">💼</span><span class="nav-label">Бизнес игры</span></button>
     <button class="nav-btn" data-tab="profile"><span class="nav-icon">📊</span><span class="nav-label">Прогресс</span></button>
   </nav>
 
@@ -1230,6 +1262,103 @@ let openCategory = null;
 
 let openFaq = null;
 
+function renderCalculator(){
+  const container = document.getElementById('calc-container');
+  if(!container) return;
+  container.innerHTML = `
+    <div class="calc-card">
+      <div class="calc-field">
+        <label class="calc-label">Выручка отдела в месяц, ₽</label>
+        <input class="calc-input" type="number" id="calc-revenue" placeholder="напр. 3000000" inputmode="numeric">
+      </div>
+      <div class="calc-field">
+        <label class="calc-label">Сделок в месяц</label>
+        <input class="calc-input" type="number" id="calc-deals" placeholder="напр. 20" inputmode="numeric">
+      </div>
+      <div class="calc-field">
+        <label class="calc-label">Текущая конверсия лид → сделка, %</label>
+        <input class="calc-input" type="number" id="calc-conv" placeholder="напр. 15" inputmode="numeric">
+      </div>
+      <div id="calc-output"></div>
+      <div class="calc-note">Расчёт иллюстративный: показывает потенциал при росте конверсии на 10 процентных пунктов — точные цифры зависят от вашей специфики и уточняются на аудите.</div>
+    </div>
+  `;
+  const inputs = ['calc-revenue','calc-deals','calc-conv'].map(id=>document.getElementById(id));
+  function calc(){
+    const revenue = parseFloat(document.getElementById('calc-revenue').value) || 0;
+    const deals = parseFloat(document.getElementById('calc-deals').value) || 0;
+    const conv = parseFloat(document.getElementById('calc-conv').value) || 0;
+    const output = document.getElementById('calc-output');
+    if(revenue > 0 && deals > 0 && conv > 0){
+      const leads = deals / (conv/100);
+      const avgDeal = revenue / deals;
+      const extraDeals = leads * 0.10;
+      const extraRevenue = Math.round(extraDeals * avgDeal);
+      output.innerHTML = `
+        <div class="calc-result">
+          <div class="calc-result-num">+${extraRevenue.toLocaleString('ru-RU')} ₽</div>
+          <div class="calc-result-label">потенциально в месяц при росте конверсии на 10 п.п.</div>
+        </div>
+      `;
+    } else {
+      output.innerHTML = '';
+    }
+  }
+  inputs.forEach(inp=> inp.addEventListener('input', calc));
+}
+
+let checklistUnlocked = false;
+
+function renderChecklistGate(){
+  const container = document.getElementById('checklist-gate');
+  if(!container) return;
+
+  if(!checklistUnlocked){
+    container.innerHTML = `
+      <div class="calc-card">
+        <div class="service-title" style="margin-bottom:6px;">10 признаков, что отделу продаж нужен аудит</div>
+        <div class="service-desc" style="margin-bottom:14px;">Короткий чек-лист для самопроверки — впишите имя, чтобы открыть.</div>
+        <input class="gate-input" type="text" id="gate-name" placeholder="Как к вам обращаться?">
+        <button class="cta-btn" style="width:100%; margin:0;" id="gate-unlock">Получить чек-лист</button>
+      </div>
+    `;
+    document.getElementById('gate-unlock').addEventListener('click', ()=>{
+      const name = document.getElementById('gate-name').value.trim();
+      if(!name){
+        document.getElementById('gate-name').style.borderColor = 'var(--orange)';
+        return;
+      }
+      checklistUnlocked = true;
+      window._leadName = name;
+      renderChecklistGate();
+    });
+    return;
+  }
+
+  const name = window._leadName || '';
+  container.innerHTML = `
+    <div class="calc-card">
+      <div class="service-title" style="margin-bottom:10px;">10 признаков, что отделу продаж нужен аудит</div>
+      <ul style="margin:0; padding-left:0; list-style:none;">
+        ${[
+          "План выполняется только за счёт 1-2 сильных менеджеров",
+          "Никто не может точно сказать, сколько лидов пришло за неделю",
+          "Новые менеджеры уходят в первые месяцы работы",
+          "CRM ведётся «для галочки», реальные данные — в голове у людей",
+          "Скидки даются без встречных условий, просто чтобы закрыть сделку",
+          "РОП лично закрывает сложные сделки вместо команды",
+          "Нет регламента по обработке входящих лидов",
+          "Возражение «дорого» каждый раз отрабатывается по-разному",
+          "План продаж не разложен на активность по этапам воронки",
+          "Отпуск РОПа на 2 недели заметно бьёт по выручке"
+        ].map(item=>`<li style="font-size:12.5px; color:var(--text-secondary); line-height:1.7; padding-left:22px; position:relative;"><span style="position:absolute; left:0; color:var(--orange); font-weight:700;">✓</span>${item}</li>`).join('')}
+      </ul>
+      <div style="font-size:12px; color:var(--text-secondary); margin-top:14px;">Совпало 3 и больше? ${name ? name+', похоже' : 'Похоже'}, аудит будет полезен.</div>
+      <a class="cta-btn" style="width:100%; margin-top:12px;" href="${TELEGRAM_LINK}?text=${encodeURIComponent('Здравствуйте! Меня зовут '+name+'. Прошёл(ла) чек-лист в приложении SCG, хочу обсудить аудит отдела продаж.')}" target="_blank" rel="noopener">Обсудить результат в Telegram</a>
+    </div>
+  `;
+}
+
 function renderFAQ(){
   const list = document.getElementById('faq-list');
   if(!list) return;
@@ -1363,6 +1492,7 @@ function renderQuiz(){
 
 function renderCourses(){
   const container = document.getElementById('category-list');
+  if(!container) return;
   const categories = [
     {key:'rop', title:'Для руководителей отделов продаж', icon:'🎯', list:COURSES.filter(c=>c.audience==='rop')},
     {key:'mop', title:'Для менеджеров по продажам', icon:'📈', list:COURSES.filter(c=>c.audience==='mop')}
@@ -1411,7 +1541,7 @@ function renderCourses(){
       const next = current === idx + 1 ? idx : idx + 1;
       progress.courses[id] = next;
       saveProgress(progress);
-      if(next === STAGES.length) showToast();
+      if(next === STAGES.length) showToast('🏆 Курс внедрён в работу');
       renderCourses();
       renderProfile();
     });
@@ -1529,8 +1659,9 @@ function renderProfile(){
   document.getElementById('stat-progress').textContent = inProgress;
 }
 
-function showToast(){
+function showToast(text){
   const toast = document.getElementById('toast');
+  if(text) toast.textContent = text;
   toast.classList.add('show');
   setTimeout(()=> toast.classList.remove('show'), 1800);
 }
@@ -1551,10 +1682,31 @@ document.getElementById('modal-overlay').addEventListener('click', (e)=>{
 
 renderServices();
 renderFAQ();
+renderCalculator();
+renderChecklistGate();
 renderQuiz();
 renderCourses();
 renderGames();
 renderProfile();
+
+const shareBtn = document.getElementById('share-btn');
+if(shareBtn){
+  shareBtn.addEventListener('click', async ()=>{
+    const shareData = {
+      title: 'Академия SCG',
+      text: 'Полезное приложение от Sales Consulting Group — курсы, диагностика отдела продаж и деловые игры.',
+      url: window.location.href
+    };
+    try{
+      if(navigator.share){
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        showToast('🔗 Ссылка скопирована');
+      }
+    }catch(e){}
+  });
+}
 </script>
 </body>
 </html>
