@@ -106,6 +106,43 @@
   .modal-body b{color:var(--text);}
   .modal-body .day-intro{font-size:13px; color:var(--text); background:var(--orange-tint); border:1px solid var(--orange-dim); border-radius:10px; padding:12px 14px; margin-bottom:14px;}
 
+  /* Hero / About */
+  .hero{padding:28px 20px 24px; text-align:center; background:linear-gradient(180deg, var(--orange-tint), var(--bg)); animation:fadeInUp .3s ease both;}
+  .hero-logo{width:64px; height:64px; border-radius:16px; overflow:hidden; margin:0 auto 14px; box-shadow:0 4px 14px rgba(232,100,31,0.25);}
+  .hero-logo img{width:100%; height:100%; object-fit:cover;}
+  .hero-title{font-family:Arial,Helvetica,sans-serif; font-size:20px; font-weight:700; color:var(--text); line-height:1.3;}
+  .hero-tagline{font-size:13.5px; color:var(--text-secondary); margin-top:8px; line-height:1.5;}
+
+  .cta-btn{display:block; width:calc(100% - 40px); margin:16px 20px 0; padding:14px; border-radius:10px; border:none; background:var(--orange); color:#fff; font-size:14px; font-weight:700; text-align:center; cursor:pointer; text-decoration:none; box-shadow:0 4px 12px rgba(232,100,31,0.3); transition:transform .1s ease, box-shadow .15s ease;}
+  .cta-btn:active{transform:scale(0.98); box-shadow:0 2px 6px rgba(232,100,31,0.25);}
+  .cta-btn.secondary{background:transparent; border:1.5px solid var(--orange); color:var(--orange); box-shadow:none;}
+
+  .fab-contact{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(72px + env(safe-area-inset-bottom,0px)); width:calc(100% - 40px); max-width:380px; z-index:20; padding:13px; border-radius:12px; border:none; background:var(--graphite); color:#fff; font-size:13.5px; font-weight:700; text-align:center; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 6px 18px rgba(0,0,0,0.2);}
+  .fab-contact:active{transform:translateX(-50%) scale(0.97);}
+
+  .service-card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:0 20px 10px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
+  .service-icon{width:38px; height:38px; border-radius:10px; background:var(--orange-tint); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:10px;}
+  .service-title{font-size:14.5px; font-weight:700; color:var(--text);}
+  .service-desc{font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.5;}
+  .service-more{margin-top:10px; font-size:12px; font-weight:700; color:var(--orange); background:none; border:none; padding:0; cursor:pointer;}
+
+  /* Quiz / diagnostics */
+  .quiz-wrap{padding:0 20px;}
+  .quiz-progress-bar{height:5px; background:var(--border); border-radius:3px; overflow:hidden; margin:0 20px 20px;}
+  .quiz-progress-fill{height:100%; background:var(--orange); transition:width .3s ease;}
+  .quiz-card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px 18px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
+  .quiz-qnum{font-size:11px; color:var(--orange); font-weight:700; text-transform:uppercase; letter-spacing:.5px;}
+  .quiz-question{font-size:15px; font-weight:700; color:var(--text); margin-top:8px; line-height:1.4;}
+  .quiz-options{margin-top:16px; display:flex; flex-direction:column; gap:8px;}
+  .quiz-option{padding:12px 14px; border-radius:9px; border:1.5px solid var(--border); background:var(--surface-raised); color:var(--text); font-size:13.5px; text-align:left; cursor:pointer; transition:border-color .15s ease, background .15s ease;}
+  .quiz-option:active{background:var(--orange-tint); border-color:var(--orange);}
+  .quiz-intro{padding:24px 20px; text-align:center;}
+  .quiz-intro-icon{font-size:40px; margin-bottom:10px;}
+  .quiz-result{padding:8px 20px 20px; text-align:center;}
+  .quiz-score{font-family:Arial,Helvetica,sans-serif; font-size:44px; font-weight:700; color:var(--orange); margin:6px 0;}
+  .quiz-score-label{font-size:14px; font-weight:700; color:var(--text);}
+  .quiz-score-desc{font-size:13px; color:var(--text-secondary); margin:10px 0 4px; line-height:1.6; text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px;}
+
   .category-card{background:var(--surface); border:1px solid var(--border); border-radius:14px; margin:16px 20px 0; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
   .category-head{display:flex; align-items:center; gap:12px; padding:16px; cursor:pointer; background:none; border:none; width:100%; text-align:left; transition:background .15s ease;}
   .category-head:active{background:var(--orange-tint);}
@@ -141,7 +178,26 @@
   </header>
 
   <main>
-    <div id="tab-courses" class="tab active">
+    <div id="tab-home" class="tab active">
+      <div class="hero">
+        <div class="hero-logo"><img src="icon-192-v2.png" alt="SCG"></div>
+        <div class="hero-title">Строим отделы продаж,<br>которые работают без вас</div>
+        <div class="hero-tagline">Аудит, построение с нуля, найм и обучение команды. Sales Consulting Group — практики, а не теоретики.</div>
+      </div>
+      <a class="cta-btn" href="https://t.me/vitaly_scg" target="_blank" rel="noopener">Записаться на бесплатную консультацию</a>
+
+      <div class="section-label">Услуги</div>
+      <div id="services-list"></div>
+
+      <div class="section-label">Демо-доступ</div>
+      <div class="service-card">
+        <div class="service-desc">Ниже — часть наших курсов и деловых игр в открытом доступе, чтобы вы могли оценить подход и глубину проработки материалов. Полный доступ для вашей команды — после консультации.</div>
+      </div>
+    </div>
+
+    <div id="tab-diagnosis" class="tab"></div>
+
+    <div id="tab-courses" class="tab">
       <div id="category-list"></div>
     </div>
 
@@ -163,6 +219,8 @@
     </div>
   </main>
 
+  <a class="fab-contact" href="https://t.me/vitaly_scg" target="_blank" rel="noopener">✈️ Написать в Telegram</a>
+
   <div class="toast" id="toast">🏆 Курс внедрён в работу</div>
 
   <div class="modal-overlay" id="modal-overlay">
@@ -176,16 +234,60 @@
   </div>
 
   <nav class="bottom">
-    <button class="nav-btn active" data-tab="courses"><span class="nav-icon">🎓</span><span class="nav-label">Курсы</span></button>
-    <button class="nav-btn" data-tab="games"><span class="nav-icon">💼</span><span class="nav-label">Бизнес игры</span></button>
+    <button class="nav-btn active" data-tab="home"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></button>
+    <button class="nav-btn" data-tab="diagnosis"><span class="nav-icon">📋</span><span class="nav-label">Тест</span></button>
+    <button class="nav-btn" data-tab="courses"><span class="nav-icon">🎓</span><span class="nav-label">Курсы</span></button>
+    <button class="nav-btn" data-tab="games"><span class="nav-icon">💼</span><span class="nav-label">Игры</span></button>
     <button class="nav-btn" data-tab="profile"><span class="nav-icon">📊</span><span class="nav-label">Прогресс</span></button>
   </nav>
 
 </div>
 
 <script>
+const TELEGRAM_LINK = "https://t.me/vitaly_scg";
 const STAGES = ["Знакомство","Изучение","Практика","Внедрено"];
 const STORAGE_KEY = "scg-progress-v1";
+
+const SERVICES = [
+  {
+    id:"s1", icon:"🔍", title:"Аудит отдела продаж",
+    desc:"Разбираем текущую воронку, регламенты, CRM и мотивацию — находим, где именно теряются деньги.",
+    more:"Выезжаем или работаем удалённо: слушаем звонки, смотрим CRM, беседуем с командой. На выходе — конкретный список точек роста с приоритетами, а не общие рекомендации в духе «продавайте больше»."
+  },
+  {
+    id:"s2", icon:"🏗️", title:"Построение отдела с нуля",
+    desc:"Проектируем структуру, воронку, регламенты и систему мотивации для нового отдела продаж под ваш продукт.",
+    more:"От портрета первого менеджера и структуры воронки до готовых регламентов и CRM — под ключ, с учётом специфики вашего рынка и цикла сделки."
+  },
+  {
+    id:"s3", icon:"🧑‍🤝‍🧑", title:"Найм и обучение менеджеров",
+    desc:"Помогаем нанять подходящих людей и быстро вывести их на результат по проверенной программе адаптации.",
+    more:"Портрет кандидата, воронка найма, структурированные собеседования и программа первых 30 дней — снижаем текучку и ускоряем выход новичков на план."
+  },
+  {
+    id:"s4", icon:"⚙️", title:"Система мотивации и KPI",
+    desc:"Проектируем схему оплаты труда, которая стимулирует нужные действия, а не только конечный результат.",
+    more:"Баланс материальной и нематериальной мотивации, KPI результата и процесса — под цикл сделки и специфику именно вашего отдела."
+  },
+  {
+    id:"s5", icon:"🎓", title:"Корпоративное обучение команды",
+    desc:"Курсы и деловые игры для РОП и менеджеров — часть материалов доступна в этом приложении для ознакомления.",
+    more:"Полная библиотека курсов и деловых игр для вашей команды с индивидуальным трекингом прогресса — доступ открывается после консультации."
+  }
+];
+
+const QUIZ_QUESTIONS = [
+  {q:"У вас есть воронка продаж с чёткими, проверяемыми критериями перехода между этапами?", options:[{t:"Да, у всех менеджеров одинаковое понимание",v:2},{t:"Формально есть, но каждый понимает по-своему",v:1},{t:"Воронки как таковой нет",v:0}]},
+  {q:"Есть ли в отделе письменные регламенты по типовым ситуациям (обработка лида, передача сделки)?", options:[{t:"Да, и мы проверяем их исполнение",v:2},{t:"Есть, но никто не проверяет",v:1},{t:"Нет, каждый работает по-своему",v:0}]},
+  {q:"Что произойдёт с продажами, если РОП уйдёт в отпуск на месяц?", options:[{t:"Почти ничего не изменится",v:2},{t:"Просядут, но не критично",v:1},{t:"Всё встанет",v:0}]},
+  {q:"Отражает ли CRM реальное состояние сделок в любой момент времени?", options:[{t:"Да, данные всегда актуальны",v:2},{t:"Частично, есть расхождения",v:1},{t:"CRM ведётся для галочки",v:0}]},
+  {q:"Система мотивации стимулирует не только закрытие сделок, но и работу с воронкой на входе?", options:[{t:"Да, учтено и то, и другое",v:2},{t:"В основном только результат",v:1},{t:"Не задумывались об этом",v:0}]},
+  {q:"Есть ли у вас программа адаптации для новых менеджеров на первые 30 дней?", options:[{t:"Да, структурированная программа",v:2},{t:"Новичок разбирается сам",v:1},{t:"Программы нет",v:0}]},
+  {q:"Ведёте ли вы еженедельный контроль план-факта по нарастающему графику?", options:[{t:"Да, еженедельно",v:2},{t:"Смотрим раз в месяц по итогу",v:1},{t:"Только когда план уже горит",v:0}]},
+  {q:"Как часто менеджеры уходят в первые 2-3 месяца работы?", options:[{t:"Редко, единичные случаи",v:2},{t:"Иногда бывает",v:1},{t:"Регулярная проблема",v:0}]},
+  {q:"У вас есть чёткое разделение ролей и зон ответственности между менеджерами?", options:[{t:"Да, у каждого своя зона",v:2},{t:"Частично, есть пересечения",v:1},{t:"Все работают со всеми",v:0}]},
+  {q:"Как менеджеры реагируют на возражение «дорого»?", options:[{t:"По отработанному алгоритму",v:2},{t:"По-разному, кто как умеет",v:1},{t:"Чаще всего сразу скидкой",v:0}]}
+];
 
 const COURSES = [
   {id:"c1", audience:"rop", title:"Проектирование системы продаж", desc:"6 модулей: воронка с проверяемыми критериями, регламенты с точками контроля, CRM и разделение ролей в команде."},
@@ -994,12 +1096,19 @@ function renderCourseCard(course){
   return card;
 }
 
+const DEMO_CTA = `
+  <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border); text-align:center;">
+    <div style="font-size:12.5px; color:var(--text-secondary); margin-bottom:10px;">Понравился подход? Внедрим это в вашей команде.</div>
+    <a class="cta-btn" style="width:100%; margin:0;" href="${TELEGRAM_LINK}" target="_blank" rel="noopener">Оставить заявку на консультацию</a>
+  </div>
+`;
+
 function openMaterials(courseId){
   const course = COURSES.find(c=>c.id===courseId);
   const content = COURSE_CONTENT[courseId];
   if(!course || !content) return;
   document.getElementById('modal-title').textContent = course.title;
-  document.getElementById('modal-body').innerHTML = content;
+  document.getElementById('modal-body').innerHTML = content + DEMO_CTA;
   document.getElementById('modal-overlay').classList.add('show');
   document.getElementById('modal-body').scrollTop = 0;
 }
@@ -1008,7 +1117,7 @@ function openGameDetails(gameId){
   const content = GAME_CONTENT[gameId];
   if(!game || !content) return;
   document.getElementById('modal-title').textContent = game.title;
-  document.getElementById('modal-body').innerHTML = content;
+  document.getElementById('modal-body').innerHTML = content + DEMO_CTA;
   document.getElementById('modal-overlay').classList.add('show');
   document.getElementById('modal-body').scrollTop = 0;
 }
@@ -1018,6 +1127,111 @@ function closeMaterials(){
 }
 
 let openCategory = null;
+
+function renderServices(){
+  const list = document.getElementById('services-list');
+  if(!list) return;
+  list.innerHTML = '';
+  SERVICES.forEach(s=>{
+    const card = document.createElement('div');
+    card.className = 'service-card';
+    card.innerHTML = `
+      <div class="service-icon">${s.icon}</div>
+      <div class="service-title">${s.title}</div>
+      <div class="service-desc">${s.desc}</div>
+      <button class="service-more" data-service="${s.id}">Узнать подробнее →</button>
+    `;
+    list.appendChild(card);
+  });
+  document.querySelectorAll('[data-service]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const s = SERVICES.find(x=>x.id===btn.dataset.service);
+      if(!s) return;
+      document.getElementById('modal-title').textContent = s.title;
+      document.getElementById('modal-body').innerHTML = `
+        <p style="font-size:13px; color:var(--text-secondary); line-height:1.6;">${s.more}</p>
+        <a class="cta-btn" style="margin:20px 0 0; width:100%;" href="${TELEGRAM_LINK}" target="_blank" rel="noopener">Обсудить эту услугу</a>
+      `;
+      document.getElementById('modal-overlay').classList.add('show');
+    });
+  });
+}
+
+let quizAnswers = [];
+let quizStep = -1; // -1 = intro screen
+
+function renderQuiz(){
+  const container = document.getElementById('tab-diagnosis');
+  if(quizStep === -1){
+    container.innerHTML = `
+      <div class="quiz-intro">
+        <div class="quiz-intro-icon">📋</div>
+        <div class="hero-title" style="font-size:18px;">Экспресс-диагностика отдела продаж</div>
+        <div class="hero-tagline">10 вопросов, 2 минуты. В конце — оценка состояния отдела и рекомендации.</div>
+        <button class="cta-btn" id="quiz-start" style="width:100%; margin-top:20px;">Начать тест</button>
+      </div>
+    `;
+    document.getElementById('quiz-start').addEventListener('click', ()=>{
+      quizStep = 0;
+      quizAnswers = [];
+      renderQuiz();
+    });
+    return;
+  }
+
+  if(quizStep >= QUIZ_QUESTIONS.length){
+    const total = quizAnswers.reduce((a,b)=>a+b,0);
+    const max = QUIZ_QUESTIONS.length * 2;
+    const score = Math.round((total/max)*100);
+    let label, desc;
+    if(score >= 75){
+      label = "Система в целом работает";
+      desc = "У вас неплохая база — воронка, регламенты и контроль в основном выстроены. Обычно на этом уровне рост даёт точечная донастройка мотивации и более глубокая работа с опережающими метриками, а не перестройка с нуля.";
+    } else if(score >= 45){
+      label = "Система есть, но требует настройки";
+      desc = "Часть процессов работает, но есть заметные пробелы — где-то регламенты не проверяются, где-то CRM не отражает реальность. Именно на этом уровне аудит обычно даёт наибольший эффект: видно, что чинить в первую очередь.";
+    } else {
+      label = "Отдел держится на героике, а не на системе";
+      desc = "Похоже, результат сильно зависит от личных усилий отдельных людей, а не от процесса. Это рискованно: уход одного сильного менеджера или отпуск РОПа заметно бьёт по выручке. Это ровно та ситуация, где построение системы с нуля даёт максимальный эффект.";
+    }
+    container.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-score-label">Результат диагностики</div>
+        <div class="quiz-score">${score}<span style="font-size:20px; color:var(--text-muted);">/100</span></div>
+        <div class="quiz-score-label" style="color:var(--orange);">${label}</div>
+        <div class="quiz-score-desc">${desc}</div>
+        <a class="cta-btn" style="width:100%;" href="${TELEGRAM_LINK}" target="_blank" rel="noopener">Обсудить результаты с экспертом бесплатно</a>
+        <button class="cta-btn secondary" style="width:100%;" id="quiz-restart">Пройти тест заново</button>
+      </div>
+    `;
+    document.getElementById('quiz-restart').addEventListener('click', ()=>{
+      quizStep = -1;
+      renderQuiz();
+    });
+    return;
+  }
+
+  const q = QUIZ_QUESTIONS[quizStep];
+  container.innerHTML = `
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(quizStep/QUIZ_QUESTIONS.length)*100}%"></div></div>
+    <div class="quiz-wrap">
+      <div class="quiz-card">
+        <div class="quiz-qnum">Вопрос ${quizStep+1} из ${QUIZ_QUESTIONS.length}</div>
+        <div class="quiz-question">${q.q}</div>
+        <div class="quiz-options">
+          ${q.options.map((o,i)=>`<button class="quiz-option" data-val="${o.v}">${o.t}</button>`).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+  container.querySelectorAll('.quiz-option').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      quizAnswers.push(parseInt(btn.dataset.val,10));
+      quizStep++;
+      renderQuiz();
+    });
+  });
+}
 
 function renderCourses(){
   const container = document.getElementById('category-list');
@@ -1207,6 +1421,8 @@ document.getElementById('modal-overlay').addEventListener('click', (e)=>{
   if(e.target.id === 'modal-overlay') closeMaterials();
 });
 
+renderServices();
+renderQuiz();
 renderCourses();
 renderGames();
 renderProfile();
