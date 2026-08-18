@@ -89,6 +89,8 @@
   .nav-btn:active{background:var(--orange-tint);}
   .nav-btn.active{color:var(--orange);}
   .nav-icon{font-size:19px; line-height:1; transition:transform .2s cubic-bezier(.34,1.56,.64,1);}
+  .nav-icon img{width:20px; height:20px; display:block; object-fit:contain; filter:grayscale(1) opacity(0.5);}
+  .nav-btn.active .nav-icon img{filter:none;}
   .nav-btn.active .nav-icon{transform:translateY(-1px);}
   .nav-label{font-size:10.5px; font-weight:500;}
   .nav-btn.active .nav-label{font-weight:700;}
@@ -392,7 +394,7 @@
   </div>
 
   <nav class="bottom">
-    <button class="nav-btn active" data-tab="home"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></button>
+    <button class="nav-btn active" data-tab="home"><span class="nav-icon"><img src="icon-192-v2.png" alt="SCG"></span><span class="nav-label">Главная</span></button>
     <button class="nav-btn" data-tab="diagnosis"><span class="nav-icon">📋</span><span class="nav-label">Тест</span></button>
     <button class="nav-btn" data-tab="games"><span class="nav-icon">💼</span><span class="nav-label">Бизнес игры</span></button>
   </nav>
