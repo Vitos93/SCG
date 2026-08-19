@@ -2,959 +2,423 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SCG — Sales Consulting Group</title>
-<meta name="theme-color" content="#FAFAFA">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="SCG — Sales Consulting Group">
-<meta property="og:description" content="Помогаем командам продаж перейти на новый качественный уровень. Аудит, построение с нуля, мотивация и обучение команды.">
-<meta property="og:image" content="https://vitos93.github.io/SCG/icon-512-v2.png">
-<meta property="og:url" content="https://vitos93.github.io/SCG/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SCG — Sales Consulting Group">
-<meta name="twitter:description" content="Помогаем командам продаж перейти на новый качественный уровень.">
-<meta name="twitter:image" content="https://vitos93.github.io/SCG/icon-512-v2.png">
-<meta name="description" content="Sales Consulting Group — аудит, построение отдела продаж с нуля, мотивация и обучение команды.">
-<link rel="icon" type="image/png" href="icon-192-v2.png">
-<link rel="apple-touch-icon" href="icon-192-v2.png">
-<link rel="manifest" href="manifest.json">
-<style>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=2y5mM4sZMuTmknN7ymzyonELCoNFxMkckCzTPFfy71VeLhRMOB5EvS1lDmH0Lvjs" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly93d3cuc2NnLXNhbGVzLnJ1Lw"/><style>
   :root{
-    --bg:#FAFAFA; --surface:#FFFFFF; --surface-raised:#F3F3F3;
-    --border:#E2E2E2; --border-light:#CCCCCC;
-    --text:#1A1A1A; --text-secondary:#5A5A5A; --text-muted:#8A8A8A;
-    --orange:#E8641F; --orange-dim:#F4C7AC; --orange-tint:#FDEEE5;
+    --orange:#E8641F;
+    --orange-light:#F2954F;
     --graphite:#1A1A1A;
-    --success:#2E9B5C; --success-tint:#E6F5EB;
+    --gray:#595959;
+    --peach:#FBE9DD;
+    --white:#FFFFFF;
+    --maxw:1180px;
   }
-  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-  html,body{margin:0; padding:0; background:var(--bg); font-family:Arial,Helvetica,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; scroll-behavior:smooth;}
-  body{display:flex; justify-content:center;}
-  #app{width:100%; max-width:420px; min-height:100vh; background:var(--bg); display:flex; flex-direction:column; position:relative; border-left:1px solid var(--border); border-right:1px solid var(--border);}
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--white); color:var(--graphite);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  h1,h2,h3{font-weight:700; letter-spacing:-0.01em;}
 
-  @keyframes fadeInUp{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
-  @keyframes popIn{from{opacity:0; transform:scale(0.5);} to{opacity:1; transform:scale(1);}}
-  @keyframes sheetUp{from{transform:translateY(100%);} to{transform:translateY(0);}}
-  @keyframes overlayFade{from{opacity:0;} to{opacity:1;}}
+  .num-label{
+    font-weight:700; color:var(--orange);
+    font-size:14px; letter-spacing:0.06em; text-transform:uppercase;
+    display:flex; align-items:center; gap:10px;
+  }
+  .num-label::before{content:''; width:24px; height:2px; background:var(--orange); display:inline-block;}
 
-  header.top{padding:20px 20px 16px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; background:var(--surface);}
-  .logo{width:40px; height:40px; border-radius:9px; flex-shrink:0; overflow:hidden;}
-  .logo img{width:100%; height:100%; display:block; object-fit:cover;}
-  .title{font-family:Arial,Helvetica,sans-serif; font-size:18px; font-weight:700; color:var(--text); letter-spacing:.2px;}
-  .subtitle{font-size:12px; color:var(--text-secondary);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-weight:700; font-size:15px;
+    padding:15px 28px;
+    border-radius:4px;
+    text-decoration:none;
+    border:2px solid transparent;
+    transition:all .18s ease;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .btn-primary{background:var(--graphite); color:var(--white);}
+  .btn-primary:hover{background:var(--orange);}
+  .btn-onorange{background:var(--white); color:var(--orange);}
+  .btn-onorange:hover{background:var(--graphite); color:var(--white);}
+  .btn-outline{background:transparent; color:var(--graphite); border-color:var(--graphite);}
+  .btn-outline:hover{background:var(--graphite); color:var(--white);}
+  .btn-outline-onorange{background:transparent; color:var(--white); border-color:rgba(255,255,255,0.7);}
+  .btn-outline-onorange:hover{background:var(--white); color:var(--orange);}
 
-  main{flex:1; overflow-y:auto; padding-bottom:88px; -webkit-overflow-scrolling:touch;}
-  .section-label{font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--orange); font-weight:700; padding:18px 20px 8px;}
+  .mark{display:flex; align-items:center; justify-content:center;}
+  .mark svg{width:100%; height:100%;}
 
-  .tab{display:none;}
-  .tab.active{display:block; animation:fadeInUp .25s ease both;}
+  /* NAV */
+  header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.95); backdrop-filter:blur(6px); border-bottom:1px solid #EEE7DE;}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:80px;}
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo .mark{width:30px; height:30px;}
+  .logo .word{font-weight:700; font-size:16px; letter-spacing:0.02em;}
+  .logo .word b{color:var(--orange);}
+  nav.links{display:flex; gap:28px; font-size:14.5px; font-weight:700;}
+  nav.links a{text-decoration:none; color:var(--gray);}
+  nav.links a:hover{color:var(--orange);}
 
-  nav.bottom{position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:420px; background:var(--surface); border-top:1px solid var(--border); display:flex; padding:10px 8px calc(10px + env(safe-area-inset-bottom,0px));}
-  .nav-btn{flex:1; display:flex; flex-direction:column; align-items:center; gap:3px; background:none; border:none; cursor:pointer; padding:6px 4px; color:var(--text-muted); border-radius:10px; transition:background .2s ease, color .2s ease;}
-  .nav-btn:active{background:var(--orange-tint);}
-  .nav-btn.active{color:var(--orange);}
-  .nav-icon{font-size:19px; line-height:1; transition:transform .2s cubic-bezier(.34,1.56,.64,1);}
-  .nav-icon img{width:20px; height:20px; display:block; object-fit:contain; filter:grayscale(1) opacity(0.5);}
-  .nav-btn.active .nav-icon img{filter:none;}
-  .nav-btn.active .nav-icon{transform:translateY(-1px);}
-  .nav-label{font-size:10.5px; font-weight:500;}
-  .nav-btn.active .nav-label{font-weight:700;}
+  /* HERO */
+  .hero{background:var(--orange); color:var(--white); padding:100px 0 90px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:50px; align-items:center; position:relative; z-index:2;}
+  .hero .num-label{color:var(--white);}
+  .hero .num-label::before{background:var(--white);}
+  .hero h1{font-size:clamp(36px,4.6vw,54px); line-height:1.1; margin:20px 0 20px; color:var(--white);}
+  .hero p.lead{font-size:17px; color:rgba(255,255,255,0.88); max-width:480px; margin-bottom:30px;}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-mark{width:260px; height:260px; margin:0 auto; opacity:0.95;}
+  .hero-bg-mark{position:absolute; right:-60px; bottom:-60px; width:420px; height:420px; opacity:0.08; z-index:1;}
 
-  .toast{position:fixed; bottom:96px; left:50%; transform:translateX(-50%) translateY(6px); width:calc(100% - 32px); max-width:388px; background:var(--graphite); border:1px solid var(--orange); border-radius:10px; padding:10px 14px; display:flex; align-items:center; gap:8px; color:#fff; font-size:13px; box-shadow:0 8px 24px rgba(0,0,0,0.18); opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;}
-  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+  /* VALUES */
+  .values{padding:80px 0; background:var(--peach);}
+  .values .head{margin-bottom:40px;}
+  .values h2{font-size:clamp(24px,3.2vw,34px);}
+  .values-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--graphite);}
+  .value-card{background:var(--white); padding:32px 28px;}
+  .value-card .letter{
+    width:46px; height:46px; border-radius:50%;
+    background:var(--orange); color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:20px; margin-bottom:16px;
+  }
+  .value-card h3{font-size:18px; margin-bottom:8px;}
+  .value-card p{font-size:14px; color:var(--gray);}
 
-  .materials-btn{margin-top:10px; width:100%; padding:9px; border-radius:8px; border:1.5px solid var(--orange); background:transparent; color:var(--orange); font-size:12px; font-weight:700; cursor:pointer; transition:background .15s ease, color .15s ease, transform .1s ease;}
-  .materials-btn:active{background:var(--orange); color:#fff; transform:scale(0.98);}
+  /* DIRECTIONS */
+  .directions{padding:90px 0 40px;}
+  .directions .head{margin-bottom:40px; max-width:640px;}
+  .directions h2{font-size:clamp(24px,3.2vw,34px); margin-bottom:12px;}
+  .directions .head p{color:var(--gray); font-size:15.5px;}
+  .dir-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .dir-card{border:1px solid #EEE7DE; border-radius:8px; padding:32px 28px; position:relative;}
+  .dir-card .dn{font-weight:700; color:var(--orange); font-size:13px; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:14px; display:block;}
+  .dir-card h3{font-size:21px; margin-bottom:12px;}
+  .dir-card p{font-size:14.5px; color:var(--gray); margin-bottom:16px;}
+  .dir-card ul{list-style:none; font-size:13.5px; color:var(--graphite);}
+  .dir-card li{padding:7px 0; border-top:1px solid #F3EEE6; display:flex; gap:8px;}
+  .dir-card li::before{content:'—'; color:var(--orange); flex-shrink:0;}
 
-  .modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:50; display:none; justify-content:center; align-items:flex-end; animation:overlayFade .2s ease both;}
-  .modal-overlay.show{display:flex;}
-  .modal-sheet{width:100%; max-width:420px; max-height:88vh; background:var(--bg); border-top-left-radius:16px; border-top-right-radius:16px; border:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; animation:sheetUp .28s cubic-bezier(.32,.72,0,1) both;}
-  .modal-head{padding:16px 18px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-shrink:0; background:var(--surface);}
-  .modal-title{font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:700; color:var(--text);}
-  .modal-close{background:var(--surface-raised); border:1px solid var(--border); color:var(--text-secondary); width:30px; height:30px; border-radius:50%; font-size:16px; cursor:pointer; flex-shrink:0; transition:background .15s ease, transform .1s ease;}
-  .modal-close:active{transform:scale(0.9);}
-  .modal-body{overflow-y:auto; padding:16px 18px 28px; -webkit-overflow-scrolling:touch;}
-  .modal-body h3{font-family:Arial,Helvetica,sans-serif; font-size:15px; font-weight:700; color:var(--orange); margin:22px 0 8px; border-top:1px solid var(--border); padding-top:18px;}
-  .modal-body h3:first-child{margin-top:0; border-top:none; padding-top:0;}
-  .modal-body h4{font-size:12.5px; color:var(--graphite); margin:14px 0 6px; text-transform:uppercase; letter-spacing:.5px; font-weight:700;}
-  .modal-body p{font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0 0 10px;}
-  .modal-body ul{margin:0 0 10px; padding-left:18px;}
-  .modal-body li{font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:4px;}
-  .modal-body b{color:var(--text);}
-  .modal-body .day-intro{font-size:13px; color:var(--text); background:var(--orange-tint); border:1px solid var(--orange-dim); border-radius:10px; padding:12px 14px; margin-bottom:14px;}
+  /* PROBLEM */
+  .problem{background:var(--graphite); color:var(--white); padding:90px 0;}
+  .problem .num-label{color:var(--orange-light);}
+  .problem .num-label::before{background:var(--orange-light);}
+  .problem h2{color:var(--white); font-size:clamp(24px,3.2vw,36px); margin:16px 0 24px; max-width:700px;}
+  .problem p{font-size:16px; color:rgba(255,255,255,0.75); max-width:640px; margin-bottom:18px;}
+  .problem .callout{font-weight:700; font-size:18px; color:var(--white); max-width:640px; margin-top:8px;}
 
-  /* Hero / About */
-  .hero{padding:28px 20px 24px; text-align:center; background:linear-gradient(180deg, var(--orange-tint), var(--bg)); animation:fadeInUp .3s ease both;}
-  .hero-logo{width:64px; height:64px; border-radius:16px; overflow:hidden; margin:0 auto 14px; box-shadow:0 4px 14px rgba(232,100,31,0.25);}
-  .hero-logo img{width:100%; height:100%; object-fit:cover;}
-  .hero-title{font-family:Arial,Helvetica,sans-serif; font-size:20px; font-weight:700; color:var(--text); line-height:1.3;}
-  .hero-tagline{font-size:13.5px; color:var(--text-secondary); margin-top:8px; line-height:1.5;}
+  /* SIGNS */
+  .signs{padding:90px 0;}
+  .signs .head{max-width:640px; margin-bottom:40px;}
+  .signs h2{font-size:clamp(24px,3.2vw,34px); margin-bottom:12px;}
+  .signs .head p{color:var(--gray); font-size:15.5px;}
+  .signs-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#EEE7DE; border:1px solid #EEE7DE; border-radius:8px; overflow:hidden;}
+  .sign-card{background:var(--white); padding:22px 26px; font-size:14.5px; display:flex; gap:12px; align-items:flex-start;}
+  .sign-card .dot{width:8px; height:8px; border-radius:50%; background:var(--orange); margin-top:7px; flex-shrink:0;}
 
-  .cta-btn{display:block; width:calc(100% - 40px); margin:16px 20px 0; padding:14px; border-radius:10px; border:none; background:var(--orange); color:#fff; font-size:14px; font-weight:700; text-align:center; cursor:pointer; text-decoration:none; box-shadow:0 4px 12px rgba(232,100,31,0.3); transition:transform .1s ease, box-shadow .15s ease;}
-  .cta-btn:active{transform:scale(0.98); box-shadow:0 2px 6px rgba(232,100,31,0.25);}
-  .cta-btn.secondary{background:transparent; border:1.5px solid var(--orange); color:var(--orange); box-shadow:none;}
+  /* QUOTE */
+  .quote{background:var(--peach); padding:70px 0; text-align:center;}
+  .quote .wrap{max-width:760px;}
+  .quote p.small{font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:0.05em; font-size:13px; margin-bottom:18px;}
+  .quote h2{font-size:clamp(22px,3vw,30px); line-height:1.4;}
+  .quote h2 b{color:var(--orange);}
 
-  .fab-contact{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(72px + env(safe-area-inset-bottom,0px)); width:calc(100% - 40px); max-width:380px; z-index:20; padding:13px; border-radius:12px; border:none; background:var(--graphite); color:#fff; font-size:13.5px; font-weight:700; text-align:center; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 6px 18px rgba(0,0,0,0.2);}
-  .fab-contact:active{transform:translateX(-50%) scale(0.97);}
+  /* JOURNEY */
+  .journey{background:var(--graphite); color:var(--white); padding:90px 0;}
+  .journey .num-label{color:var(--orange-light);}
+  .journey .num-label::before{background:var(--orange-light);}
+  .journey h2{color:var(--white); font-size:clamp(24px,3.2vw,34px); margin:16px 0 44px; max-width:560px;}
+  .journey-flow{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .j-step{position:relative; padding-top:20px; border-top:2px solid rgba(255,255,255,0.15);}
+  .j-step:first-child{border-top-color:var(--orange);}
+  .j-step .n{font-weight:700; color:var(--orange-light); font-size:12.5px; margin-bottom:10px; display:block;}
+  .j-step h4{font-size:16px; font-weight:700; margin-bottom:6px;}
+  .j-step p{font-size:13px; color:rgba(255,255,255,0.62);}
+  .j-note{margin-top:36px; font-size:14px; color:rgba(255,255,255,0.7); max-width:640px;}
 
-  .service-card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:0 20px 10px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both; cursor:pointer;}
-  .service-icon{width:38px; height:38px; border-radius:10px; background:var(--orange-tint); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:10px;}
-  .service-title{font-size:14.5px; font-weight:700; color:var(--text);}
-  .service-desc{font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.5;}
-  .service-more{margin-top:10px; font-size:12px; font-weight:700; color:var(--orange); background:none; border:none; padding:0; cursor:pointer;}
+  /* AUDIENCE */
+  .audience{padding:90px 0;}
+  .audience .head{max-width:600px; margin-bottom:36px;}
+  .audience h2{font-size:clamp(24px,3.2vw,34px); margin-bottom:10px;}
+  .audience .head p{color:var(--gray); font-size:15px;}
+  .aud-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .aud-card{background:var(--peach); border-radius:8px; padding:26px 24px;}
+  .aud-card .ic{width:38px; height:38px; margin-bottom:14px; color:var(--orange);}
+  .aud-card p{font-size:14.5px; color:var(--graphite);}
 
-  /* Quiz / diagnostics */
-  .quiz-wrap{padding:0 20px;}
-  .quiz-progress-bar{height:5px; background:var(--border); border-radius:3px; overflow:hidden; margin:0 20px 20px;}
-  .quiz-progress-fill{height:100%; background:var(--orange); transition:width .3s ease;}
-  .quiz-card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px 18px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
-  .quiz-qnum{font-size:11px; color:var(--orange); font-weight:700; text-transform:uppercase; letter-spacing:.5px;}
-  .quiz-question{font-size:15px; font-weight:700; color:var(--text); margin-top:8px; line-height:1.4;}
-  .quiz-options{margin-top:16px; display:flex; flex-direction:column; gap:8px;}
-  .quiz-option{padding:12px 14px; border-radius:9px; border:1.5px solid var(--border); background:var(--surface-raised); color:var(--text); font-size:13.5px; text-align:left; cursor:pointer; transition:border-color .15s ease, background .15s ease;}
-  .quiz-option:active{background:var(--orange-tint); border-color:var(--orange);}
-  .quiz-intro{padding:24px 20px; text-align:center;}
-  .quiz-intro-icon{font-size:40px; margin-bottom:10px;}
-  .quiz-result{padding:8px 20px 20px; text-align:center;}
-  .quiz-score{font-family:Arial,Helvetica,sans-serif; font-size:44px; font-weight:700; color:var(--orange); margin:6px 0;}
-  .quiz-score-label{font-size:14px; font-weight:700; color:var(--text);}
-  .quiz-score-desc{font-size:13px; color:var(--text-secondary); margin:10px 0 4px; line-height:1.6; text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px;}
+  /* FOUNDER */
+  .founder{padding:100px 0;}
+  .founder-grid{display:grid; grid-template-columns:0.7fr 1.3fr; gap:56px; align-items:center;}
+  .founder-photo{
+    aspect-ratio:1; border-radius:50%;
+    background:var(--peach); border:2px dashed var(--orange);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .founder-photo .init{font-size:64px; font-weight:700; color:var(--orange);}
+  .founder h2{font-size:clamp(26px,3.2vw,36px); margin-bottom:6px;}
+  .founder .role{color:var(--orange); font-weight:700; text-transform:uppercase; font-size:13px; letter-spacing:0.06em; margin-bottom:20px;}
+  .founder p.bio{font-size:16px; color:var(--gray); max-width:600px; margin-bottom:20px;}
 
-  /* Founder block */
-  .founder-card{margin:0 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 16px; display:flex; gap:14px; align-items:flex-start; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
-  .founder-avatar{width:52px; height:52px; border-radius:50%; background:linear-gradient(155deg, var(--orange), #c94f10); display:flex; align-items:center; justify-content:center; font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:20px; color:#fff; flex-shrink:0; overflow:hidden;}
-  .founder-avatar img{width:100%; height:100%; object-fit:cover;}
-  .founder-name{font-size:14.5px; font-weight:700; color:var(--text);}
-  .founder-role{font-size:11.5px; color:var(--orange); font-weight:600; margin-top:1px;}
-  .founder-bio{font-size:12.5px; color:var(--text-secondary); margin-top:8px; line-height:1.55;}
-  .founder-tasks{margin-top:10px; padding-left:0; list-style:none;}
-  .founder-tasks li{font-size:12.5px; color:var(--text-secondary); line-height:1.6; padding-left:14px; position:relative;}
-  .founder-tasks li::before{content:"—"; position:absolute; left:0; color:var(--orange);}
+  /* CTA */
+  .cta{background:var(--orange); color:var(--white); padding:100px 0; text-align:center;}
+  .cta h2{color:var(--white); font-size:clamp(28px,4.2vw,46px); margin-bottom:18px;}
+  .cta p{color:rgba(255,255,255,0.88); max-width:480px; margin:0 auto 30px; font-size:16px;}
+  .cta-btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
 
-  .values-row{display:flex; gap:10px; margin:0 20px; animation:fadeInUp .3s ease both;}
-  .value-card{flex:1; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 10px; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);}
-  .value-letter{width:34px; height:34px; border-radius:50%; background:var(--orange); color:#fff; font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:16px; display:flex; align-items:center; justify-content:center; margin:0 auto 8px;}
-  .value-title{font-size:12px; font-weight:700; color:var(--text);}
-  .value-desc{font-size:10.5px; color:var(--text-secondary); margin-top:3px; line-height:1.4;}
+  footer{background:var(--graphite); color:rgba(255,255,255,0.7); padding:40px 0;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-size:13.5px;}
+  .footer-grid .logo .word{color:var(--white);}
 
-  /* Process steps */
-  .process-list{padding:0 20px; display:flex; flex-direction:column; gap:0;}
-  .process-step{display:flex; gap:14px; animation:fadeInUp .3s ease both;}
-  .process-num{width:30px; height:30px; border-radius:50%; background:var(--orange-tint); color:var(--orange); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
-  .process-line{width:2px; flex:1; background:var(--border); margin:4px 0; align-self:center;}
-  .process-content{padding-bottom:18px; flex:1;}
-  .process-title{font-size:13.5px; font-weight:700; color:var(--text);}
-  .process-desc{font-size:12px; color:var(--text-secondary); margin-top:3px; line-height:1.5;}
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
 
-  /* FAQ */
-  .faq-item{margin:0 20px 8px; background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; animation:fadeInUp .3s ease both;}
-  .faq-q{width:100%; text-align:left; padding:14px 16px; background:none; border:none; display:flex; justify-content:space-between; align-items:center; gap:10px; cursor:pointer; font-size:13.5px; font-weight:700; color:var(--text);}
-  .faq-chevron{color:var(--orange); font-size:13px; transition:transform .2s ease; flex-shrink:0;}
-  .faq-item.open .faq-chevron{transform:rotate(180deg);}
-  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
-  .faq-item.open .faq-a{max-height:400px;}
-  .faq-a-inner{padding:0 16px 16px; font-size:12.5px; color:var(--text-secondary); line-height:1.55;}
-
-  .article-card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:0 20px 10px; box-shadow:0 1px 3px rgba(0,0,0,0.04); cursor:pointer; transition:transform .1s ease; animation:fadeInUp .3s ease both;}
-  .article-card:active{transform:scale(0.98);}
-  .article-tag{font-size:10.5px; color:var(--orange); font-weight:700; text-transform:uppercase; letter-spacing:.5px;}
-  .article-title{font-size:14px; font-weight:700; color:var(--text); margin-top:5px; line-height:1.35;}
-  .article-excerpt{font-size:12px; color:var(--text-secondary); margin-top:5px; line-height:1.5;}
-  .article-read{font-size:11.5px; color:var(--orange); font-weight:700; margin-top:8px;}
-
-  .contact-card{margin:0 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
-  .contact-row{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:12.5px;}
-  .contact-row:last-child{border-bottom:none;}
-  .contact-label{color:var(--text-secondary);}
-  .contact-value{color:var(--text); font-weight:600;}
-
-  /* Calculator */
-  .calc-card{margin:0 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
-  .calc-field{margin-bottom:12px;}
-  .calc-label{font-size:12px; color:var(--text-secondary); margin-bottom:5px; display:block;}
-  .calc-input{width:100%; padding:11px 12px; border-radius:8px; border:1.5px solid var(--border); background:var(--surface-raised); color:var(--text); font-size:14px; font-family:Arial,Helvetica,sans-serif;}
-  .calc-input:focus{outline:none; border-color:var(--orange);}
-  .calc-result{margin-top:14px; padding:14px; border-radius:10px; background:var(--orange-tint); border:1px solid var(--orange-dim); text-align:center;}
-  .calc-result-num{font-family:Arial,Helvetica,sans-serif; font-size:24px; font-weight:700; color:var(--orange);}
-  .calc-result-label{font-size:11.5px; color:var(--text-secondary); margin-top:2px;}
-  .calc-note{font-size:10.5px; color:var(--text-muted); margin-top:8px; line-height:1.4;}
-
-  /* Simple checklist */
-  .simple-list{margin:0 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
-  .simple-list ul{margin:0; padding-left:0; list-style:none;}
-  .simple-list li{font-size:13px; color:var(--text-secondary); line-height:1.7; padding-left:24px; position:relative;}
-  .simple-list li::before{content:"✓"; position:absolute; left:0; color:var(--orange); font-weight:700;}
-
-  /* Share button */
-  .share-btn{display:block; width:calc(100% - 40px); margin:10px 20px 0; padding:12px; border-radius:10px; border:1.5px solid var(--border); background:var(--surface); color:var(--text); font-size:13px; font-weight:600; text-align:center; cursor:pointer;}
-  .share-btn:active{background:var(--surface-raised);}
-
-  /* Lead gate form */
-  .gate-input{width:100%; padding:12px 14px; border-radius:9px; border:1.5px solid var(--border); background:var(--surface-raised); color:var(--text); font-size:14px; margin-bottom:10px; font-family:Arial,Helvetica,sans-serif;}
-  .gate-input:focus{outline:none; border-color:var(--orange);}
-
-  .game-card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:0 20px 10px; box-shadow:0 1px 3px rgba(0,0,0,0.04); animation:fadeInUp .3s ease both;}
-  .game-head{display:flex; align-items:flex-start; gap:12px;}
-  .game-icon{width:38px; height:38px; border-radius:10px; background:var(--orange-tint); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;}
-  .game-title{font-size:14.5px; font-weight:700; color:var(--text); line-height:1.3;}
-  .game-desc{font-size:12.5px; color:var(--text-secondary); margin-top:4px;}
-  .game-meta{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
-  .game-tag{font-size:10.5px; color:var(--orange); background:var(--orange-tint); border-radius:6px; padding:3px 8px; font-weight:600;}
+  @media (max-width:900px){
+    nav.links{display:none;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-mark{width:180px; height:180px;}
+    .values-grid{grid-template-columns:1fr;}
+    .dir-grid{grid-template-columns:1fr;}
+    .signs-grid{grid-template-columns:1fr;}
+    .journey-flow{grid-template-columns:1fr 1fr;}
+    .aud-grid{grid-template-columns:1fr;}
+    .founder-grid{grid-template-columns:1fr; text-align:center;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important;}}
 </style>
 </head>
 <body>
-<div id="app">
 
-  <header class="top">
-    <div class="logo"><img src="icon-192-v2.png" alt="SCG"></div>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="scg-mark" viewBox="0 0 100 100">
+    <rect x="14" y="58" width="14" height="24" fill="currentColor"/>
+    <rect x="34" y="44" width="14" height="38" fill="currentColor"/>
+    <rect x="54" y="30" width="14" height="52" fill="currentColor"/>
+    <circle cx="70" cy="34" r="17" fill="none" stroke="currentColor" stroke-width="7"/>
+    <line x1="81" y1="45" x2="92" y2="56" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-briefcase" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 8h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8zM8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="ic-users" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-3.3 2.7-6 6-6s6 2.7 6 6M17 11a3 3 0 1 0 0-6M22 21c0-2.8-2-5.1-4.6-5.7"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 9h18M7 3v4M17 3v4M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="mark" style="color:var(--orange);"><svg><use href="#scg-mark"/></svg></div>
+      <div class="word">SALES CONSULTING <b>GROUP</b></div>
+    </div>
+    <nav class="links">
+      <a href="#directions">Направления</a>
+      <a href="#signs">Когда это нужно</a>
+      <a href="#journey">Путь клиента</a>
+      <a href="#founder">Основатель</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Получить аудит</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg-mark mark" style="color:var(--white);"><svg><use href="#scg-mark"/></svg></div>
+  <div class="wrap hero-grid">
     <div>
-      <div class="title">SCG</div>
-      <div class="subtitle">Sales Consulting Group</div>
-    </div>
-  </header>
-
-  <main>
-    <div id="tab-home" class="tab active">
-      <div class="hero">
-        <div class="hero-logo"><img src="icon-192-v2.png" alt="SCG"></div>
-        <div class="hero-title">Помогаем командам продаж<br>перейти на новый качественный уровень</div>
-        <div class="hero-tagline">Аудит отдела продаж, построение системы с нуля, настройка мотивации и обучение команды. Sales Consulting Group — практики, а не теоретики.</div>
-      </div>
-      <a class="cta-btn" href="https://t.me/vitaly_scg" target="_blank" rel="noopener">Записаться на бесплатную консультацию</a>
-      <button class="share-btn" id="share-btn">↗ Поделиться приложением</button>
-
-      <div class="section-label">Когда стоит обратиться</div>
-      <div class="simple-list">
-        <ul>
-          <li>Отдел вырос, а старые процессы уже не справляются с объёмом</li>
-          <li>Планируете расширять команду и не хотите повторять старые ошибки</li>
-          <li>Сделки срываются из-за человеческого фактора, а не из-за рынка</li>
-          <li>Хотите отойти от операционки, но боитесь, что без вас всё встанет</li>
-          <li>Конкуренты обгоняют по системности процессов, а не по продукту</li>
-          <li>Готовитесь к новому сезону и хотите точный план, а не ощущения</li>
-        </ul>
-      </div>
-
-      <div class="section-label">Кто ведёт проекты</div>
-      <div class="founder-card">
-        <div class="founder-avatar"><img src="founder-photo.jpg" alt="Виталий Сидоров"></div>
-        <div>
-          <div class="founder-name">Виталий Сидоров</div>
-          <div class="founder-role">Основатель и руководитель SCG (Sales Consulting Group)</div>
-          <div class="founder-bio">Более 10 лет в коммерческом направлении бизнеса. Специализация — построение и системное развитие коммерческих отделов «под ключ»: от структуры и мотивации до KPI и системы управления. За плечами 10+ лет практики в этой узкой экспертизе.</div>
-          <div class="founder-bio" style="margin-top:10px; font-weight:700; color:var(--text);">Работаем с задачами:</div>
-          <ul class="founder-tasks">
-            <li>аудит и диагностика отдела продаж</li>
-            <li>построение отдела продаж с нуля</li>
-            <li>разработка системы мотивации и KPI</li>
-            <li>обучение и развитие РОП и МОП</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section-label">Почему мы</div>
-      <div class="founder-card" style="display:block;">
-        <ul class="founder-tasks" style="margin-top:0;">
-          <li>Не продаём шаблонные тренинги — работаем с вашими реальными данными: CRM, звонками, воронкой, а не общими презентациями</li>
-          <li>Даём конкретный план с приоритетами, а не общие рекомендации в духе «продавайте больше»</li>
-          <li>Честно скажем, если задача не наша — беремся только за то, в чём реально можем помочь</li>
-          <li>Проекты ведёт лично основатель, а не передаются неизвестному исполнителю</li>
-        </ul>
-      </div>
-
-      <div class="section-label">Наши ценности</div>
-      <div class="values-row">
-        <div class="value-card">
-          <div class="value-letter">S</div>
-          <div class="value-title">Substance</div>
-          <div class="value-desc">Говорим по делу, без воды</div>
-        </div>
-        <div class="value-card">
-          <div class="value-letter">C</div>
-          <div class="value-title">Commitment</div>
-          <div class="value-desc">Идём до результата, а не до конца контракта</div>
-        </div>
-        <div class="value-card">
-          <div class="value-letter">G</div>
-          <div class="value-title">Grow together</div>
-          <div class="value-desc">Ваш рост — отражение нашей работы</div>
-        </div>
-      </div>
-
-      <div class="section-label">Услуги</div>
-      <div id="services-list"></div>
-
-      <div class="section-label">Как мы работаем</div>
-      <div class="process-list">
-        <div class="process-step">
-          <div>
-            <div class="process-num">1</div>
-            <div class="process-line"></div>
-          </div>
-          <div class="process-content">
-            <div class="process-title">Заявка</div>
-            <div class="process-desc">Пишете в Telegram или проходите бесплатную диагностику во вкладке «Тест» — коротко описываете ситуацию в отделе.</div>
-          </div>
-        </div>
-        <div class="process-step">
-          <div>
-            <div class="process-num">2</div>
-            <div class="process-line"></div>
-          </div>
-          <div class="process-content">
-            <div class="process-title">Созвон</div>
-            <div class="process-desc">30-40 минут — разбираем задачу, текущую ситуацию и то, какой формат работы подойдёт именно вам.</div>
-          </div>
-        </div>
-        <div class="process-step">
-          <div>
-            <div class="process-num">3</div>
-            <div class="process-line"></div>
-          </div>
-          <div class="process-content">
-            <div class="process-title">Аудит</div>
-            <div class="process-desc">Смотрим CRM, слушаем звонки, беседуем с командой — находим конкретные точки роста, а не общие рекомендации.</div>
-          </div>
-        </div>
-        <div class="process-step">
-          <div>
-            <div class="process-num">4</div>
-          </div>
-          <div class="process-content">
-            <div class="process-title">План внедрения</div>
-            <div class="process-desc">Конкретный пошаговый план с приоритетами — что делать в первую очередь, что может подождать.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-label">Частые вопросы</div>
-      <div id="faq-list"></div>
-
-      <div class="section-label">Что мы смотрим на аудите</div>
-      <div class="simple-list">
-        <ul>
-          <li>Воронка продаж — конверсия на каждом этапе, где теряются клиенты</li>
-          <li>Звонки и переписки — типовые ошибки менеджеров в реальных диалогах</li>
-          <li>Скрипты и регламенты — актуальны ли и используются ли на практике</li>
-          <li>CRM — корректность ведения сделок, «мусорные» и потерянные карточки</li>
-          <li>KPI и мотивация — реально ли действующая система стимулирует нужный результат</li>
-          <li>Компетенции менеджеров — тестовые звонки и ролевые игры на знание продукта</li>
-          <li>Оргструктура — разделение ролей в коммерческом блоке</li>
-        </ul>
-      </div>
-
-      <div class="section-label">Бесплатный материал</div>
-      <div id="checklist-gate"></div>
-
-      <div class="section-label">Статьи от эксперта</div>
-      <div id="articles-list"></div>
-
-      <div class="section-label">Контакты</div>
-      <div class="contact-card">
-        <div class="contact-row"><span class="contact-label">Город</span><span class="contact-value"> </span></div>
-        <div class="contact-row"><span class="contact-label">Телефон</span><span class="contact-value"> </span></div>
-        <div class="contact-row"><span class="contact-label">Email</span><span class="contact-value"> </span></div>
-        <div class="contact-row"><span class="contact-label">ИНН</span><span class="contact-value"> </span></div>
-        <div class="contact-row"><span class="contact-label">Telegram</span><span class="contact-value">@vitaly_scg</span></div>
+      <p class="num-label">Sales Consulting Group</p>
+      <h1>Не разовые советы —<br>система, которая находит<br>и закрывает рост в продажах</h1>
+      <p class="lead">Аудит находит проблему. Консультирование определяет решение. Настройка внедряет и сопровождает результат.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-onorange">Запросить аудит →</a>
+        <a href="#signs" class="btn btn-outline-onorange">Когда это актуально</a>
       </div>
     </div>
+    <div class="hero-mark mark"><svg><use href="#scg-mark"/></svg></div>
+  </div>
+</section>
 
-    <div id="tab-diagnosis" class="tab"></div>
+<section class="problem" id="problem">
+  <div class="wrap">
+    <p class="num-label reveal">Прежде чем говорить об инструментах</p>
+    <h2 class="reveal">Проблема обычно не в рынке. Проблема в том, как устроен отдел продаж</h2>
+    <p class="reveal">В какой-то момент рост компании упирается не в спрос, продукт или количество лидов. Он упирается в собственную систему продаж.</p>
+    <p class="reveal">Менеджеры сильны каждый по отдельности, но работают по разным правилам. Воронка есть, а объяснить, на каком этапе теряются сделки, никто не может. РОП тушит операционные пожары вместо того, чтобы управлять результатом команды. Сложные сделки собственник по-прежнему закрывает лично.</p>
+    <p class="reveal">На этом этапе отдельных инструментов — скрипта, новой CRM, смены мотивации — уже недостаточно. Нужна система, которую видно и можно контролировать.</p>
+    <p class="callout reveal">Мы не приходим с готовым набором универсальных решений. Сначала разбираемся, как отдел продаж работает на самом деле — и только потом предлагаем, что менять.</p>
+  </div>
+</section>
 
-    <div id="tab-games" class="tab">
-      <div class="section-label">Деловые игры</div>
-      <div id="games-list"></div>
+<section class="values">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="num-label" style="color:var(--orange);">Принципы работы</p>
+      <h2 style="margin-top:16px;">S · C · G — то, на чём строится каждый проект</h2>
     </div>
-  </main>
-
-  <a class="fab-contact" href="https://t.me/vitaly_scg" target="_blank" rel="noopener">✈️ Написать в Telegram</a>
-
-  <div class="toast" id="toast">🏆 Курс внедрён в работу</div>
-
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal-sheet">
-      <div class="modal-head">
-        <div class="modal-title" id="modal-title">Материалы курса</div>
-        <button class="modal-close" id="modal-close">✕</button>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="letter">S</div>
+        <h3>Substance — суть</h3>
+        <p>Говорим по делу, без воды и общих формулировок. Каждая рекомендация — конкретная и применимая.</p>
       </div>
-      <div class="modal-body" id="modal-body"></div>
+      <div class="value-card reveal">
+        <div class="letter">C</div>
+        <h3>Commitment — приверженность</h3>
+        <p>Идём с клиентом до результата, а не до конца контракта. Сопровождаем внедрение, а не только советуем.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="letter">G</div>
+        <h3>Grow together — растём вместе</h3>
+        <p>Рост клиента — прямое отражение нашей работы. Заинтересованы в результате, а не в часах консультаций.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <nav class="bottom">
-    <button class="nav-btn active" data-tab="home"><span class="nav-icon"><img src="icon-192-v2.png" alt="SCG"></span><span class="nav-label">Главная</span></button>
-    <button class="nav-btn" data-tab="diagnosis"><span class="nav-icon">📋</span><span class="nav-label">Тест</span></button>
-    <button class="nav-btn" data-tab="games"><span class="nav-icon">💼</span><span class="nav-label">Бизнес игры</span></button>
-  </nav>
+<section class="directions" id="directions">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="num-label">Два направления</p>
+      <h2 style="margin-top:16px;">Точечная работа и системное развитие — вместе они усиливают друг друга</h2>
+      <p>Клиенты первого направления — естественная аудитория для второго: от разовой диагностики до постоянной площадки развития команды.</p>
+    </div>
+    <div class="dir-grid">
+      <div class="dir-card reveal">
+        <span class="dn">Направление 01</span>
+        <h3>Консультирование, аудит и настройка</h3>
+        <p>Точечная и проектная работа: разовые консультации, комплексная диагностика и построение системы «под ключ».</p>
+        <ul>
+          <li>Диагностическая консультация и коучинг РОПа</li>
+          <li>Аудит отдела продаж — по масштабу команды</li>
+          <li>Настройка: от базового пакета до полного «под ключ»</li>
+        </ul>
+      </div>
+      <div class="dir-card reveal">
+        <span class="dn">Направление 02</span>
+        <h3>Стратегические сессии, обучение и книжные клубы</h3>
+        <p>Регулярное развитие команды продаж: планирование с РОПом, обучение менеджеров, книжный клуб как постоянный формат.</p>
+        <ul>
+          <li>Стратегическая сессия с РОПом</li>
+          <li>Обучение и развитие МОП</li>
+          <li>Книжный клуб — по абонентской модели</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
+<section class="signs" id="signs">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="num-label">Когда это особенно нужно</p>
+      <h2 style="margin-top:16px;">Как понять, что отделу продаж нужен внешний взгляд</h2>
+      <p>Если несколько пунктов ниже — про вашу компанию, разовый совет вряд ли решит вопрос. Нужна диагностика и системные изменения.</p>
+    </div>
+    <div class="signs-grid">
+      <div class="sign-card reveal"><span class="dot"></span>Отдел продаж растёт по численности, а выручка — нет.</div>
+      <div class="sign-card reveal"><span class="dot"></span>Результат держится на 1–2 сильных менеджерах, а не на системе.</div>
+      <div class="sign-card reveal"><span class="dot"></span>Воронка есть, но никто не может объяснить, где именно теряются сделки.</div>
+      <div class="sign-card reveal"><span class="dot"></span>Сложные и крупные сделки собственник по-прежнему закрывает лично.</div>
+      <div class="sign-card reveal"><span class="dot"></span>РОП управляет не результатом команды, а тушит ежедневные пожары.</div>
+      <div class="sign-card reveal"><span class="dot"></span>Мотивация есть, но она не двигает нужные показатели.</div>
+      <div class="sign-card reveal"><span class="dot"></span>Новые менеджеры выходят на результат медленно и непредсказуемо.</div>
+      <div class="sign-card reveal"><span class="dot"></span>Компания готовится к росту, а текущая система продаж такой масштаб не выдержит.</div>
+    </div>
+  </div>
+</section>
+
+<section class="journey" id="journey">
+  <div class="wrap">
+    <p class="num-label reveal">Экосистема SCG</p>
+    <h2 class="reveal">Типовой путь клиента — от диагностики до постоянного развития команды</h2>
+    <div class="journey-flow">
+      <div class="j-step reveal"><span class="n">01</span><h4>Аудит</h4><p>Находим проблему: узкие места в воронке, скриптах, CRM, мотивации.</p></div>
+      <div class="j-step reveal"><span class="n">02</span><h4>Консультирование</h4><p>Определяем решение и приоритеты для конкретной ситуации.</p></div>
+      <div class="j-step reveal"><span class="n">03</span><h4>Настройка</h4><p>Внедряем систему «под ключ» и сопровождаем результат.</p></div>
+      <div class="j-step reveal"><span class="n">04</span><h4>Стратегия и клуб</h4><p>Переходим в регулярный формат: сессии с РОПом, обучение, книжный клуб.</p></div>
+    </div>
+    <p class="j-note">Аудит → консультирование → настройка → стратегические сессии и книжный клуб — так клиент постепенно проходит оба направления внутри одной экосистемы.</p>
+  </div>
+</section>
+
+<section class="audience">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="num-label">Кому подходит</p>
+      <h2 style="margin-top:16px;">Целевая аудитория</h2>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-card reveal">
+        <div class="ic mark"><svg><use href="#ic-briefcase"/></svg></div>
+        <p>Компании малого и среднего бизнеса с отделом продаж от 3 до 20 менеджеров.</p>
+      </div>
+      <div class="aud-card reveal">
+        <div class="ic mark"><svg><use href="#ic-users"/></svg></div>
+        <p>Собственники и РОПы, которым нужна как разовая диагностика, так и системное развитие команды.</p>
+      </div>
+      <div class="aud-card reveal">
+        <div class="ic mark"><svg><use href="#ic-calendar"/></svg></div>
+        <p>Компании с сезонным или проектным циклом продаж, которым требуется регулярное обновление стратегии.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder" id="founder">
+  <div class="wrap founder-grid">
+    <div class="founder-photo reveal"><span class="init">ВС</span></div>
+    <div class="reveal">
+      <p class="role">Основатель и CEO SCG</p>
+      <h2>Виталий Сидоров</h2>
+      <p class="bio">Более 10 лет управляет коммерческими подразделениями. Ранее — коммерческий директор в IT-компании партнёрской сети «Актион». Строит отделы продаж, которые работают по системе, а не на личных договорённостях.</p>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap">
+    <p class="small reveal">Главный вопрос меняется</p>
+    <h2 class="reveal">Не «как мне продавать ещё больше», а <b>«как построить отдел продаж, который растёт без моего постоянного личного участия»</b></h2>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Готовы посмотреть, где теряются продажи?</h2>
+    <p>Оставьте заявку — обсудим ситуацию в отделе продаж и подберём формат работы под ваш масштаб и цикл продаж.</p>
+    <div class="cta-btns">
+      <a href="mailto:info@scg-sales.ru" class="btn btn-onorange">info@scg-sales.ru</a>
+      <a href="#" class="btn btn-outline-onorange">Оставить заявку</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="logo">
+      <div class="mark" style="color:var(--orange); width:24px; height:24px;"><svg><use href="#scg-mark"/></svg></div>
+      <div class="word">SALES CONSULTING <b style="color:var(--orange);">GROUP</b></div>
+    </div>
+    <div>© 2026 Sales Consulting Group.</div>
+    <div>Москва · работаем по всей России</div>
+  </div>
+</footer>
 
 <script>
-const TELEGRAM_LINK = "https://t.me/vitaly_scg";
-
-const SERVICES = [
-  {
-    id:"s1", icon:"🔍", title:"Аудит отдела продаж",
-    desc:"Разбираем текущую воронку, регламенты, CRM и мотивацию — находим, где именно теряются деньги.",
-    more:"Выезжаем или работаем удалённо: слушаем звонки, смотрим CRM, беседуем с командой. На выходе — конкретный список точек роста с приоритетами, а не общие рекомендации в духе «продавайте больше»."
-  },
-  {
-    id:"s2", icon:"🧩", title:"Построение отдела с нуля",
-    desc:"Проектируем структуру, воронку, регламенты и систему мотивации для нового отдела продаж под ваш продукт.",
-    more:"От портрета первого менеджера и структуры воронки до готовых регламентов и CRM — под ключ, с учётом специфики вашего рынка и цикла сделки."
-  },
-  {
-    id:"s3", icon:"📋", title:"Аудит найма и адаптации",
-    desc:"Разбираем, как оформлена вакансия и портрет кандидата, даём рекомендации по найму и регламент ввода в должность для менеджеров.",
-    more:"Мы не нанимаем сотрудников за вас — мы настраиваем сам процесс: проверяем текст вакансии и портрет кандидата, помогаем выстроить структуру собеседований и пишем регламент адаптации новых менеджеров на первые недели работы."
-  },
-  {
-    id:"s4", icon:"⚙️", title:"Система мотивации и KPI",
-    desc:"Проектируем схему оплаты труда, которая стимулирует нужные действия, а не только конечный результат.",
-    more:"Баланс материальной и нематериальной мотивации, KPI результата и процесса — под цикл сделки и специфику именно вашего отдела."
-  },
-  {
-    id:"s5", icon:"🎓", title:"Корпоративное обучение команды",
-    desc:"Программы обучения и деловые игры для РОП и менеджеров — часть игр доступна в этом приложении для ознакомления.",
-    more:"Полная программа обучения для вашей команды — с деловыми играми под конкретные ситуации вашего отдела — доступ открывается после консультации."
-  },
-  {
-    id:"s6", icon:"📚", title:"Книжный клуб для команды",
-    desc:"Постоянная площадка развития — от 15 000 ₽/мес. Подбор литературы, мотивация на чтение, разбор применения на практике.",
-    more:"В отличие от разовых мероприятий — регулярный формат: 2 встречи в месяц, подбор литературы под задачи именно вашей компании, презентации и разбор того, как прочитанное применить в реальной работе отдела. Стоимость от 15 000 ₽/мес (абонемент)."
-  },
-  {
-    id:"s7", icon:"🧭", title:"Стратегическая сессия с РОПом",
-    desc:"Разовая сессия — от 25 000 ₽. Краткосрочное и долгосрочное планирование продаж с руководителем отдела.",
-    more:"Диагностика текущих целей и результатов отдела, постановка целей на квартал и на год. На выходе — дорожная карта выполнения планов продаж в виде итогового документа. Стоимость от 25 000 ₽."
-  },
-  {
-    id:"s8", icon:"🎯", title:"Обучение и развитие МОП",
-    desc:"Тренинг 1 день/группа — от 40 000 ₽. Диагностика навыков и обучение техникам продаж и работе с возражениями.",
-    more:"Начинаем с диагностики текущих навыков через тестовые звонки и ролевые игры — понимаем точки роста по каждому менеджеру. Затем тренинг по техникам продаж и возражениям. На выходе — дорожная карта развития на каждого МОП. Стоимость от 40 000 ₽ за тренинг."
-  },
-  {
-    id:"s9", icon:"🧠", title:"Коучинг РОПа",
-    desc:"Абонемент 4-6 часов/мес — от 20 000 ₽. Разбор управленческих задач и помощь в принятии решений.",
-    more:"Регулярная работа с руководителем отдела продаж по текущим управленческим задачам — не разовая консультация, а абонемент на 4-6 часов в месяц, чтобы разбирать реальные ситуации по мере их появления. Стоимость от 20 000 ₽/мес."
-  },
-  {
-    id:"s10", icon:"📝", title:"Оценка скриптов и воронки",
-    desc:"От 6 000 ₽ за документ. Комментарии и правки к уже существующим у вас материалам.",
-    more:"Если у вас уже есть скрипты звонков или прописанная воронка — присылаете документ, получаете экспертные комментарии и конкретные правки. Один документ — одна консультация. Стоимость от 6 000 ₽."
-  },
-  {
-    id:"s11", icon:"📞", title:"Разбор звонков менеджеров",
-    desc:"Разовая услуга от 7 000 ₽. Выборочная прослушка звонков с комментариями по ошибкам.",
-    more:"Прослушиваем 5-10 реальных звонков ваших менеджеров и даём конкретные комментарии по типовым ошибкам — что мешает закрывать сделки именно в разговоре, а не в процессах. Стоимость от 7 000 ₽ за разбор."
-  }
-];
-
-const ARTICLES = [
-  {
-    id:"a1", tag:"KPI и мотивация", title:"3 ошибки при внедрении KPI",
-    excerpt:"Почему новая система мотивации часто не даёт роста выручки — и как этого избежать.",
-    body:`
-      <p>Руководители часто внедряют KPI с благими намерениями, но получают обратный эффект — команда демотивирована, а результат не растёт. Разберём три самые частые ошибки.</p>
-      <h3>Ошибка 1: KPI только по результату</h3>
-      <p>Если платить исключительно за закрытые сделки, менеджеры перестают заниматься тем, что не оплачивается напрямую — актуализацией CRM, работой с холодной базой. Воронка на входе истощается, и через несколько месяцев план начинает срываться без видимой причины.</p>
-      <h3>Ошибка 2: слишком много показателей одновременно</h3>
-      <p>Когда KPI больше 5-6 штук, менеджер физически не может держать в фокусе все сразу — внимание распыляется, и в итоге ни один показатель толком не улучшается. Лучше 3-4 ключевых метрики, чем десять формальных.</p>
-      <h3>Ошибка 3: изменение правил задним числом</h3>
-      <p>Если система мотивации меняется без предупреждения посреди месяца, команда теряет доверие даже к объективно более выгодным изменениям. Любое изменение KPI стоит объявлять минимум за месяц, с понятным объяснением причин.</p>
-    `
-  },
-  {
-    id:"a2", tag:"Продажи", title:"Почему скрипты продаж не работают",
-    excerpt:"Дело не в самом скрипте — а в том, как его внедряют и как им пользуются.",
-    body:`
-      <p>«Мы написали скрипт, а менеджеры всё равно продают по-разному» — одна из самых частых жалоб руководителей. Обычно причина не в качестве скрипта, а в том, как он используется.</p>
-      <h3>Скрипт читают, а не проживают</h3>
-      <p>Если менеджер зачитывает текст дословно, клиент это слышит — разговор звучит неестественно. Рабочий скрипт — это структура и опорные фразы, а не текст для чтения по бумажке слово в слово.</p>
-      <h3>Никто не проверяет, используется ли он</h3>
-      <p>Скрипт написан и выложен в общую папку — но никто не слушает звонки и не сверяет их со скриптом. Без регулярной проверки даже хороший скрипт постепенно забывается и заменяется привычными фразами каждого менеджера.</p>
-      <h3>Скрипт один для всех сегментов клиентов</h3>
-      <p>Разговор с крупным корпоративным клиентом и с небольшим ИП должен строиться по-разному — а универсальный скрипт «на все случаи» звучит неубедительно в обоих сценариях сразу.</p>
-    `
-  },
-  {
-    id:"a3", tag:"Аудит", title:"Как понять, что пора делать аудит отдела",
-    excerpt:"Несколько признаков, что проблема не в людях, а в системе — и решить её точечно не получится.",
-    body:`
-      <p>Часто руководитель чувствует, что с отделом что-то не так, но не может сформулировать, что именно. Вот несколько сигналов, что дело не в конкретном человеке, а в системе целиком.</p>
-      <h3>Результат держится на 1-2 сильных менеджерах</h3>
-      <p>Если уход одного человека заметно бьёт по выручке отдела — это не про случайность, а про отсутствие системы, которая работает независимо от конкретных людей.</p>
-      <h3>Никто точно не знает текущих цифр воронки</h3>
-      <p>Если на вопрос «сколько лидов пришло за неделю» руководитель не может ответить сразу — значит, решения в отделе принимаются на ощущениях, а не на данных.</p>
-      <h3>Одни и те же проблемы повторяются из месяца в месяц</h3>
-      <p>Если план срывается по одной и той же причине уже третий месяц подряд, а решение каждый раз одно и то же («будем стараться больше») — это верный признак, что нужен взгляд со стороны на процесс, а не ещё одна мотивационная речь.</p>
-    `
-  }
-];
-
-const FAQ_ITEMS = [
-  {q:"Сколько стоят услуги SCG?", a:"Зависит от формата: разовый аудит, построение отдела с нуля или сопровождение — у каждого своя стоимость и объём работ. Точную цифру назовём после короткого созвона, когда поймём масштаб задачи — универсального прайса на всё нет, потому что отделы продаж сильно отличаются."},
-  {q:"Сколько времени занимает работа?", a:"Аудит обычно занимает 1-2 недели. Построение отдела с нуля или полное сопровождение — от 1 до 3 месяцев в зависимости от исходной ситуации и скорости внедрения на вашей стороне."},
-  {q:"А если у нас совсем маленький отдел — 2-3 менеджера?", a:"Работаем и с небольшими командами — подход просто становится компактнее: меньше формальных регламентов, больше точечных решений. Маленький отдел без системы теряет пропорционально не меньше, чем крупный."},
-  {q:"Вы работаете удалённо или только очно?", a:"В основном удалённо — созвоны, доступ к CRM, прослушка звонков. Очные встречи возможны при необходимости, обсуждается индивидуально."},
-  {q:"Чем вы отличаетесь от типовых тренингов по продажам?", a:"Мы не проводим разовый тренинг «для галочки» — разбираемся в вашей конкретной воронке, регламентах и CRM, и даём план именно под вашу ситуацию, а не универсальный курс."},
-  {q:"Что если после аудита мы решим внедрять всё сами?", a:"Это нормально и происходит часто — план внедрения после аудита остаётся у вас в любом случае. Сопровождение внедрения — это отдельная опция, а не обязательное условие."}
-];
-
-const QUIZ_QUESTIONS = [
-  {q:"У вас есть воронка продаж с чёткими, проверяемыми критериями перехода между этапами?", options:[{t:"Да, у всех менеджеров одинаковое понимание",v:2},{t:"Формально есть, но каждый понимает по-своему",v:1},{t:"Воронки как таковой нет",v:0}]},
-  {q:"Есть ли в отделе письменные регламенты по типовым ситуациям (обработка лида, передача сделки)?", options:[{t:"Да, и мы проверяем их исполнение",v:2},{t:"Есть, но никто не проверяет",v:1},{t:"Нет, каждый работает по-своему",v:0}]},
-  {q:"Что произойдёт с продажами, если РОП уйдёт в отпуск на месяц?", options:[{t:"Почти ничего не изменится",v:2},{t:"Просядут, но не критично",v:1},{t:"Всё встанет",v:0}]},
-  {q:"Отражает ли CRM реальное состояние сделок в любой момент времени?", options:[{t:"Да, данные всегда актуальны",v:2},{t:"Частично, есть расхождения",v:1},{t:"CRM ведётся для галочки",v:0}]},
-  {q:"Система мотивации стимулирует не только закрытие сделок, но и работу с воронкой на входе?", options:[{t:"Да, учтено и то, и другое",v:2},{t:"В основном только результат",v:1},{t:"Не задумывались об этом",v:0}]},
-  {q:"Есть ли у вас программа адаптации для новых менеджеров на первые 30 дней?", options:[{t:"Да, структурированная программа",v:2},{t:"Новичок разбирается сам",v:1},{t:"Программы нет",v:0}]},
-  {q:"Ведёте ли вы еженедельный контроль план-факта по нарастающему графику?", options:[{t:"Да, еженедельно",v:2},{t:"Смотрим раз в месяц по итогу",v:1},{t:"Только когда план уже горит",v:0}]},
-  {q:"Как часто менеджеры уходят в первые 2-3 месяца работы?", options:[{t:"Редко, единичные случаи",v:2},{t:"Иногда бывает",v:1},{t:"Регулярная проблема",v:0}]},
-  {q:"У вас есть чёткое разделение ролей и зон ответственности между менеджерами?", options:[{t:"Да, у каждого своя зона",v:2},{t:"Частично, есть пересечения",v:1},{t:"Все работают со всеми",v:0}]},
-  {q:"Как менеджеры реагируют на возражение «дорого»?", options:[{t:"По отработанному алгоритму",v:2},{t:"По-разному, кто как умеет",v:1},{t:"Чаще всего сразу скидкой",v:0}]}
-];
-
-const GAMES = [
-  {id:"g2", title:"Продай что угодно", desc:"Каждый участник за 5 минут должен продать случайный предмет остальной команде — тренировка быстрой импровизации и работы с возражениями.", players:"5-15 человек", duration:"45 мин"},
-  {id:"g5", title:"Дорого!", desc:"Отработка возражения «дорого» в формате быстрых раундов один на один — кто дольше удержит клиента в диалоге, не теряя маржу.", players:"6-12 человек", duration:"30 мин"},
-  {id:"g6", title:"Жёсткие переговоры", desc:"Переговоры под давлением: жёсткий оппонент использует манипуляции, ультиматумы и психологическое давление — нужно удержать позицию и результат.", players:"2-8 человек", duration:"50 мин"},
-  {id:"g7", title:"Переговоры с сильным оппонентом", desc:"Разговор с влиятельным визави — крупным клиентом или руководителем высокого уровня, который изначально не считает вас равной стороной.", players:"2-8 человек", duration:"50 мин"},
-  {id:"g8", title:"Скряга в автосалоне", desc:"Богатый, но патологически прижимистый клиент торгуется за каждую мелочь и пытается выбить максимум бесплатных опций. Нужно продать без убытка и без потери клиента.", players:"2-8 человек", duration:"40 мин"}
-];
-
-
-const DEMO_CTA = `
-  <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border); text-align:center;">
-    <div style="font-size:12.5px; color:var(--text-secondary); margin-bottom:10px;">Понравился подход? Внедрим это в вашей команде.</div>
-    <a class="cta-btn" style="width:100%; margin:0;" href="${TELEGRAM_LINK}" target="_blank" rel="noopener">Оставить заявку на консультацию</a>
-  </div>
-`;
-
-function openGameDetails(gameId){
-  const game = GAMES.find(g=>g.id===gameId);
-  const content = GAME_CONTENT[gameId];
-  if(!game || !content) return;
-  document.getElementById('modal-title').textContent = game.title;
-  document.getElementById('modal-body').innerHTML = content + DEMO_CTA;
-  document.getElementById('modal-overlay').classList.add('show');
-  document.getElementById('modal-body').scrollTop = 0;
-}
-
-function closeMaterials(){
-  document.getElementById('modal-overlay').classList.remove('show');
-}
-
-let openFaq = null;
-
-function renderCalculator(){
-  const container = document.getElementById('calc-container');
-  if(!container) return;
-  container.innerHTML = `
-    <div class="calc-card">
-      <div class="calc-field">
-        <label class="calc-label">Выручка отдела в месяц, ₽</label>
-        <input class="calc-input" type="number" id="calc-revenue" placeholder="напр. 3000000" inputmode="numeric">
-      </div>
-      <div class="calc-field">
-        <label class="calc-label">Сделок в месяц</label>
-        <input class="calc-input" type="number" id="calc-deals" placeholder="напр. 20" inputmode="numeric">
-      </div>
-      <div class="calc-field">
-        <label class="calc-label">Текущая конверсия лид → сделка, %</label>
-        <input class="calc-input" type="number" id="calc-conv" placeholder="напр. 15" inputmode="numeric">
-      </div>
-      <div id="calc-output"></div>
-      <div class="calc-note">Расчёт иллюстративный: показывает потенциал при росте конверсии на 10 процентных пунктов — точные цифры зависят от вашей специфики и уточняются на аудите.</div>
-    </div>
-  `;
-  const inputs = ['calc-revenue','calc-deals','calc-conv'].map(id=>document.getElementById(id));
-  function calc(){
-    const revenue = parseFloat(document.getElementById('calc-revenue').value) || 0;
-    const deals = parseFloat(document.getElementById('calc-deals').value) || 0;
-    const conv = parseFloat(document.getElementById('calc-conv').value) || 0;
-    const output = document.getElementById('calc-output');
-    if(revenue > 0 && deals > 0 && conv > 0){
-      const leads = deals / (conv/100);
-      const avgDeal = revenue / deals;
-      const extraDeals = leads * 0.10;
-      const extraRevenue = Math.round(extraDeals * avgDeal);
-      output.innerHTML = `
-        <div class="calc-result">
-          <div class="calc-result-num">+${extraRevenue.toLocaleString('ru-RU')} ₽</div>
-          <div class="calc-result-label">потенциально в месяц при росте конверсии на 10 п.п.</div>
-        </div>
-      `;
-    } else {
-      output.innerHTML = '';
-    }
-  }
-  inputs.forEach(inp=> inp.addEventListener('input', calc));
-}
-
-let checklistUnlocked = false;
-
-function renderChecklistGate(){
-  const container = document.getElementById('checklist-gate');
-  if(!container) return;
-
-  if(!checklistUnlocked){
-    container.innerHTML = `
-      <div class="calc-card">
-        <div class="service-title" style="margin-bottom:6px;">10 признаков, что отделу продаж нужен аудит</div>
-        <div class="service-desc" style="margin-bottom:14px;">Короткий чек-лист для самопроверки — впишите имя, чтобы открыть.</div>
-        <input class="gate-input" type="text" id="gate-name" placeholder="Как к вам обращаться?">
-        <button class="cta-btn" style="width:100%; margin:0;" id="gate-unlock">Получить чек-лист</button>
-      </div>
-    `;
-    document.getElementById('gate-unlock').addEventListener('click', ()=>{
-      const name = document.getElementById('gate-name').value.trim();
-      if(!name){
-        document.getElementById('gate-name').style.borderColor = 'var(--orange)';
-        return;
-      }
-      checklistUnlocked = true;
-      window._leadName = name;
-      renderChecklistGate();
-    });
-    return;
-  }
-
-  const name = window._leadName || '';
-  container.innerHTML = `
-    <div class="calc-card">
-      <div class="service-title" style="margin-bottom:10px;">10 признаков, что отделу продаж нужен аудит</div>
-      <ul style="margin:0; padding-left:0; list-style:none;">
-        ${[
-          "План выполняется только за счёт 1-2 сильных менеджеров",
-          "Никто не может точно сказать, сколько лидов пришло за неделю",
-          "Новые менеджеры уходят в первые месяцы работы",
-          "CRM ведётся «для галочки», реальные данные — в голове у людей",
-          "Скидки даются без встречных условий, просто чтобы закрыть сделку",
-          "РОП лично закрывает сложные сделки вместо команды",
-          "Нет регламента по обработке входящих лидов",
-          "Возражение «дорого» каждый раз отрабатывается по-разному",
-          "План продаж не разложен на активность по этапам воронки",
-          "Отпуск РОПа на 2 недели заметно бьёт по выручке"
-        ].map(item=>`<li style="font-size:12.5px; color:var(--text-secondary); line-height:1.7; padding-left:22px; position:relative;"><span style="position:absolute; left:0; color:var(--orange); font-weight:700;">✓</span>${item}</li>`).join('')}
-      </ul>
-      <div style="font-size:12px; color:var(--text-secondary); margin-top:14px;">Совпало 3 и больше? ${name ? name+', похоже' : 'Похоже'}, аудит будет полезен.</div>
-      <a class="cta-btn" style="width:100%; margin-top:12px;" href="${TELEGRAM_LINK}?text=${encodeURIComponent('Здравствуйте! Меня зовут '+name+'. Прошёл(ла) чек-лист в приложении SCG, хочу обсудить аудит отдела продаж.')}" target="_blank" rel="noopener">Обсудить результат в Telegram</a>
-    </div>
-  `;
-}
-
-function renderArticles(){
-  const list = document.getElementById('articles-list');
-  if(!list) return;
-  list.innerHTML = '';
-  ARTICLES.forEach(a=>{
-    const card = document.createElement('div');
-    card.className = 'article-card';
-    card.innerHTML = `
-      <div class="article-tag">${a.tag}</div>
-      <div class="article-title">${a.title}</div>
-      <div class="article-excerpt">${a.excerpt}</div>
-      <div class="article-read">Читать →</div>
-    `;
-    card.addEventListener('click', ()=>{
-      document.getElementById('modal-title').textContent = a.title;
-      document.getElementById('modal-body').innerHTML = a.body + DEMO_CTA;
-      document.getElementById('modal-overlay').classList.add('show');
-      document.getElementById('modal-body').scrollTop = 0;
-    });
-    list.appendChild(card);
-  });
-}
-
-function renderFAQ(){
-  const list = document.getElementById('faq-list');
-  if(!list) return;
-  list.innerHTML = '';
-  FAQ_ITEMS.forEach((item, i)=>{
-    const isOpen = openFaq === i;
-    const el = document.createElement('div');
-    el.className = 'faq-item' + (isOpen ? ' open' : '');
-    el.innerHTML = `
-      <button class="faq-q" data-faq="${i}">
-        <span>${item.q}</span>
-        <span class="faq-chevron">▾</span>
-      </button>
-      <div class="faq-a"><div class="faq-a-inner">${item.a}</div></div>
-    `;
-    list.appendChild(el);
-  });
-  document.querySelectorAll('[data-faq]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const i = parseInt(btn.dataset.faq,10);
-      openFaq = openFaq === i ? null : i;
-      renderFAQ();
-    });
-  });
-}
-
-function renderServices(){
-  const list = document.getElementById('services-list');
-  if(!list) return;
-  list.innerHTML = '';
-  SERVICES.forEach(s=>{
-    const card = document.createElement('div');
-    card.className = 'service-card';
-    card.dataset.service = s.id;
-    card.innerHTML = `
-      <div class="service-icon">${s.icon}</div>
-      <div class="service-title">${s.title}</div>
-      <div class="service-desc">${s.desc}</div>
-      <button class="service-more" data-service="${s.id}">Узнать подробнее →</button>
-    `;
-    card.addEventListener('click', ()=> openServiceModal(s.id));
-    list.appendChild(card);
-  });
-}
-
-function openServiceModal(serviceId){
-  const s = SERVICES.find(x=>x.id===serviceId);
-  if(!s) return;
-  document.getElementById('modal-title').textContent = s.title;
-  document.getElementById('modal-body').innerHTML = `
-        <p style="font-size:13px; color:var(--text-secondary); line-height:1.6;">${s.more}</p>
-        <a class="cta-btn" style="margin:20px 0 0; width:100%;" href="${TELEGRAM_LINK}" target="_blank" rel="noopener">Обсудить эту услугу</a>
-      `;
-      document.getElementById('modal-overlay').classList.add('show');
-}
-
-let quizAnswers = [];
-let quizStep = -1; // -1 = intro screen
-
-function renderQuiz(){
-  const container = document.getElementById('tab-diagnosis');
-  if(quizStep === -1){
-    container.innerHTML = `
-      <div class="quiz-intro">
-        <div class="quiz-intro-icon">📋</div>
-        <div class="hero-title" style="font-size:18px;">Экспресс-диагностика отдела продаж</div>
-        <div class="hero-tagline">10 вопросов, 2 минуты. В конце — оценка состояния отдела и рекомендации.</div>
-        <button class="cta-btn" id="quiz-start" style="width:100%; margin-top:20px;">Начать тест</button>
-      </div>
-    `;
-    document.getElementById('quiz-start').addEventListener('click', ()=>{
-      quizStep = 0;
-      quizAnswers = [];
-      renderQuiz();
-    });
-    return;
-  }
-
-  if(quizStep >= QUIZ_QUESTIONS.length){
-    const total = quizAnswers.reduce((a,b)=>a+b,0);
-    const max = QUIZ_QUESTIONS.length * 2;
-    const score = Math.round((total/max)*100);
-    let label, desc;
-    if(score >= 75){
-      label = "Система в целом работает";
-      desc = "У вас неплохая база — воронка, регламенты и контроль в основном выстроены. Обычно на этом уровне рост даёт точечная донастройка мотивации и более глубокая работа с опережающими метриками, а не перестройка с нуля.";
-    } else if(score >= 45){
-      label = "Система есть, но требует настройки";
-      desc = "Часть процессов работает, но есть заметные пробелы — где-то регламенты не проверяются, где-то CRM не отражает реальность. Именно на этом уровне аудит обычно даёт наибольший эффект: видно, что чинить в первую очередь.";
-    } else {
-      label = "Отдел держится на героике, а не на системе";
-      desc = "Похоже, результат сильно зависит от личных усилий отдельных людей, а не от процесса. Это рискованно: уход одного сильного менеджера или отпуск РОПа заметно бьёт по выручке. Это ровно та ситуация, где построение системы с нуля даёт максимальный эффект.";
-    }
-    container.innerHTML = `
-      <div class="quiz-result">
-        <div class="quiz-score-label">Результат диагностики</div>
-        <div class="quiz-score">${score}<span style="font-size:20px; color:var(--text-muted);">/100</span></div>
-        <div class="quiz-score-label" style="color:var(--orange);">${label}</div>
-        <div class="quiz-score-desc">${desc}</div>
-        <a class="cta-btn" style="width:100%;" href="${TELEGRAM_LINK}" target="_blank" rel="noopener">Обсудить результаты с экспертом бесплатно</a>
-        <button class="cta-btn secondary" style="width:100%;" id="quiz-restart">Пройти тест заново</button>
-      </div>
-    `;
-    document.getElementById('quiz-restart').addEventListener('click', ()=>{
-      quizStep = -1;
-      renderQuiz();
-    });
-    return;
-  }
-
-  const q = QUIZ_QUESTIONS[quizStep];
-  container.innerHTML = `
-    <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(quizStep/QUIZ_QUESTIONS.length)*100}%"></div></div>
-    <div class="quiz-wrap">
-      <div class="quiz-card">
-        <div class="quiz-qnum">Вопрос ${quizStep+1} из ${QUIZ_QUESTIONS.length}</div>
-        <div class="quiz-question">${q.q}</div>
-        <div class="quiz-options">
-          ${q.options.map((o,i)=>`<button class="quiz-option" data-val="${o.v}">${o.t}</button>`).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-  container.querySelectorAll('.quiz-option').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      quizAnswers.push(parseInt(btn.dataset.val,10));
-      quizStep++;
-      renderQuiz();
-    });
-  });
-}
-
-const GAME_CONTENT = {
-  g2: `
-    <div class="day-intro"><b>Формат:</b> 45 минут, 5-15 человек. Нужен набор случайных предметов (степлер, зонт, кружка, старый телефон и т.п.) и таймер.</div>
-    <h3>Суть игры</h3>
-    <p>Каждый участник по очереди вытягивает случайный предмет и должен «продать» его остальной группе за 3-5 минут — придумать позиционирование, назвать целевую аудиторию, ответить на 2-3 вопроса-возражения от группы. Остальные участники в конце коротко оценивают, купили бы они этот товар и почему.</p>
-    <h4>Типичные ошибки</h4>
-    <ul>
-      <li>Участник перечисляет характеристики предмета вместо выгод («у неё есть ручка» вместо «удобно держать, не выскальзывает из рук»).</li>
-      <li>Теряется при неожиданном возражении и просто повторяет то же самое, но громче.</li>
-      <li>Пытается продать предмет всем подряд, а не конкретной аудитории — размытое предложение.</li>
-      <li>Слишком быстро сдаётся при первом «нет» вместо того, чтобы задать уточняющий вопрос.</li>
-    </ul>
-    <h4>Правильный подход</h4>
-    <p>Сильная продажа — это когда участник за первые 20 секунд определяет, кому и зачем это нужно, дальше говорит на языке выгод, а на возражение отвечает вопросом или альтернативным углом, а не давлением. Оценивается находчивость и уверенность, а не то, насколько предмет объективно хорош.</p>
-  `,
-  g5: `
-    <div class="day-intro"><b>Формат:</b> 30 минут, 6-12 человек, раунды по 2 минуты один на один.</div>
-    <h3>Суть игры</h3>
-    <p>Участники разбиваются на пары: один — «менеджер», другой — «клиент», у которого есть чёткая установка — говорить «дорого» и не соглашаться, пока менеджер не приведёт действительно веский аргумент. Раунд длится 2 минуты, затем пары меняются местами и партнёрами. После нескольких раундов группа обсуждает, какие аргументы реально «пробивали» возражение, а какие нет.</p>
-    <h4>Типичные ошибки</h4>
-    <ul>
-      <li>Немедленное предложение скидки как единственная реакция на «дорого».</li>
-      <li>Спор с клиентом о том, дорого это на самом деле или нет — вместо выяснения, с чем сравнивают.</li>
-      <li>Общие фразы про «качество» и «надёжность» без конкретики и цифр.</li>
-      <li>Менеджер извиняется за цену, транслируя неуверенность в ценности продукта.</li>
-    </ul>
-    <h4>Правильный подход</h4>
-    <p>Сильный ответ на «дорого» — это уточняющий вопрос («дорого по сравнению с чем?»), затем перевод разговора в плоскость ценности и итоговой экономики для клиента (что он получает и что теряет при отказе), а не немедленная уступка в цене. Побеждает тот, кто дольше удержал клиента в диалоге, не роняя маржу.</p>
-  `,
-  g6: `
-    <div class="day-intro"><b>Формат:</b> 50 минут, 2-8 человек (парами). Ведущему нужна карточка с ролью «жёсткого оппонента» и набором манипулятивных приёмов.</div>
-    <h3>Суть игры</h3>
-    <p>Один участник играет менеджера, другой (или ведущий) — жёсткого оппонента с задачей: давить дедлайном («решайте сейчас, или предложение снимается»), обесценивать позицию собеседника, использовать ультиматумы и молчание как инструмент давления. Задача менеджера — провести переговоры о реальных условиях сделки (цена, сроки, объём), не поддавшись давлению и не разорвав отношения. После раунда — разбор: где менеджер прогнулся, а где удержал позицию.</p>
-    <h4>Типичные ошибки</h4>
-    <ul>
-      <li>Менеджер зеркалит агрессию — начинает давить в ответ, разговор превращается в конфликт.</li>
-      <li>Соглашается на условия «под дедлайном», не проверив, реален ли он на самом деле.</li>
-      <li>Воспринимает молчание оппонента как сигнал уступить и первым нарушает паузу невыгодным предложением.</li>
-      <li>Путает жёсткость позиции с жёсткостью тона — начинает грубить в ответ на давление.</li>
-    </ul>
-    <h4>Правильный подход</h4>
-    <p>Сильная тактика — отделять давление от содержания: спокойно называть вещи своими именами («я слышу, что вы торопите меня — но мне нужно N минут, чтобы посчитать корректно»), не бояться паузы, и держать жёсткую позицию по существу вопроса мягким тоном. Побеждает тот, кто довёл переговоры до содержательного решения, а не эмоциональной капитуляции ни одной из сторон.</p>
-  `,
-  g7: `
-    <div class="day-intro"><b>Формат:</b> 50 минут, 2-8 человек (парами). Ведущему нужна карточка с ролью влиятельного визави (топ-менеджер крупного клиента, значимая фигура на рынке).</div>
-    <h3>Суть игры</h3>
-    <p>Один участник играет менеджера, второй — крупную фигуру с явным перевесом влияния: этот клиент даёт 30% всей выручки отдела, либо это первое лицо компании, определяющей репутацию продавца на всём рынке. Оппонент изначально держится свысока, перебивает, обесценивает предложение репликами вроде «у меня таких предложений десять на столе». Задача менеджера — провести переговоры на равных, не заискивая и не теряя коммерческие условия, важные для его компании.</p>
-    <h4>Типичные ошибки</h4>
-    <ul>
-      <li>Менеджер занимает позицию просителя — соглашается на невыгодные условия только чтобы «не упустить» такого клиента.</li>
-      <li>Пытается впечатлить статусом собеседника и теряет фокус на содержании сделки.</li>
-      <li>Боится задавать уточняющие вопросы, потому что «неудобно переспрашивать такого человека».</li>
-      <li>Соглашается на встречу/звонок без подготовки — понадеявшись на харизму вместо цифр и аргументов.</li>
-    </ul>
-    <h4>Правильный подход</h4>
-    <p>Равная позиция строится на подготовке и уверенности в ценности своего предложения: менеджер приходит с конкретными цифрами и альтернативами, не боится сказать «нет» невыгодным условиям, и обращается с крупным клиентом уважительно, но как с равным партнёром по сделке, а не покровителем. Побеждает тот, кто сохранил коммерчески значимые условия, не потеряв отношения.</p>
-  `,
-  g8: `
-    <div class="day-intro"><b>Формат:</b> 40 минут, 2-8 человек (парами). Актуально для розничных продаж — автосалоны, техника, недвижимость, премиальные товары.</div>
-    <h3>Суть игры</h3>
-    <p>Один участник играет менеджера по продажам, второй — состоятельного клиента, который явно может себе позволить покупку, но торгуется за каждую мелочь: требует скидку «просто потому что», настаивает на бесплатных допах (коврики, страховка, доставка), сравнивает с ценами у конкурентов, которых на самом деле не проверял. Задача менеджера — довести сделку до конца на выгодных для компании условиях, не разрушив контакт с клиентом и не растеряв маржу на бесконечных уступках.</p>
-    <h4>Типичные ошибки</h4>
-    <ul>
-      <li>Менеджер соглашается на скидку просто чтобы прекратить неловкий торг, не спросив, что конкретно клиент готов сделать взамен (сегодня же оплата, отзыв, рекомендация).</li>
-      <li>Раздаёт бесплатные опции одну за другой по первой просьбе — клиент быстро понимает, что можно просить ещё.</li>
-      <li>Реагирует на упоминание «у конкурентов дешевле» оправданиями вместо уточняющего вопроса о деталях этого предложения.</li>
-      <li>Показывает раздражение от торга — клиент считывает это как слабость и давит сильнее.</li>
-    </ul>
-    <h4>Правильный подход</h4>
-    <p>Сильная тактика — заранее решить, где проходит граница уступок, и никогда не отдавать скидку или бонус без встречного условия. На «у конкурентов дешевле» — спокойный уточняющий вопрос, а не оправдания. Тон — доброжелательный и невозмутимый, торг воспринимается как нормальная часть процесса, а не как атака, которую нужно немедленно прекратить любой ценой.</p>
-  `
-};
-
-function renderGames(){
-  const list = document.getElementById('games-list');
-  list.innerHTML = '';
-  GAMES.forEach(game=>{
-    const card = document.createElement('div');
-    card.className = 'game-card';
-    card.innerHTML = `
-      <div class="game-head">
-        <div class="game-icon">💼</div>
-        <div>
-          <div class="game-title">${game.title}</div>
-          <div class="game-desc">${game.desc}</div>
-        </div>
-      </div>
-      <div class="game-meta">
-        <div class="game-tag">👥 ${game.players}</div>
-        <div class="game-tag">⏱ ${game.duration}</div>
-      </div>
-      <button class="materials-btn" data-game="${game.id}">Правила и разбор игры</button>
-    `;
-    list.appendChild(card);
-  });
-  document.querySelectorAll('[data-game]').forEach(btn=>{
-    btn.addEventListener('click', ()=> openGameDetails(btn.dataset.game));
-  });
-}
-
-function showToast(text){
-  const toast = document.getElementById('toast');
-  if(text) toast.textContent = text;
-  toast.classList.add('show');
-  setTimeout(()=> toast.classList.remove('show'), 1800);
-}
-
-document.querySelectorAll('.nav-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-  });
-});
-
-document.getElementById('modal-close').addEventListener('click', closeMaterials);
-document.getElementById('modal-overlay').addEventListener('click', (e)=>{
-  if(e.target.id === 'modal-overlay') closeMaterials();
-});
-
-renderServices();
-renderFAQ();
-renderArticles();
-renderCalculator();
-renderChecklistGate();
-renderQuiz();
-renderGames();
-
-const shareBtn = document.getElementById('share-btn');
-if(shareBtn){
-  shareBtn.addEventListener('click', async ()=>{
-    const shareUrl = window.location.href;
-    const shareData = {
-      title: 'SCG — Sales Consulting Group',
-      text: 'Полезное приложение от Sales Consulting Group — диагностика отдела продаж и деловые игры.',
-      url: shareUrl
-    };
-    if(navigator.share){
-      try{
-        await navigator.share(shareData);
-        return;
-      }catch(e){
-        if(e && e.name === 'AbortError') return;
-      }
-    }
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      try{
-        await navigator.clipboard.writeText(shareUrl);
-        showToast('🔗 Ссылка скопирована');
-        return;
-      }catch(e){}
-    }
-    window.prompt('Скопируйте ссылку:', shareUrl);
-  });
-}
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12});
+  els.forEach(el=>io.observe(el));
 </script>
 
 </body>
